@@ -70,9 +70,9 @@ public class AltaFuncionarioController implements Initializable {
 
     @FXML//boton que se encarga de registrar
     void btnActionRegistrar(ActionEvent event) {
-        EmpleadoDao emple = new EmpleadoDao();
-        LocalDate date =fechaIngreso.getValue();
-        Date fecha = Date.valueOf(date);
+        EmpleadoDao emple = new EmpleadoDao(); 
+        LocalDate date =fechaIngreso.getValue(); //se convierte el tipo datepicker a LocalDate
+        Date fecha = Date.valueOf(date); // se pasa el valor LocalDate convertido a Date.sql
         Empleado empleado = new Empleado(tfNombre.getText(), 
                 tfApellido.getText(), Integer.parseInt(tfCedula.getText()), tfTelefono.getText(), fecha, 
                 Double.parseDouble(tfSalario.getText()),
