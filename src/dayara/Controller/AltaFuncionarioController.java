@@ -5,6 +5,9 @@
  */
 package dayara.Controller;
 
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -36,6 +39,17 @@ public class AltaFuncionarioController implements Initializable {
 
     @FXML
     private JFXTextField tfTelefono;
+     @FXML
+    private JFXDatePicker fechaIngreso;
+
+    @FXML
+    private JFXTextField tfSalario;
+
+    @FXML
+    private JFXCheckBox estado;
+    
+    @FXML
+    private JFXTextArea tfObservacion;
 
   
     @Override
