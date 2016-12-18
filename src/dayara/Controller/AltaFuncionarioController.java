@@ -12,6 +12,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import com.jfoenix.controls.JFXTextField;
+import dayara.dao.EmpleadoDao;
+import dayara.model.Empleado;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Month;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -63,7 +70,15 @@ public class AltaFuncionarioController implements Initializable {
 
     @FXML//boton que se encarga de registrar
     void btnActionRegistrar(ActionEvent event) {
-
+        EmpleadoDao emple = new EmpleadoDao();
+        LocalDate date =fechaIngreso.getValue();
+        Date fecha = Date.valueOf(date);
+        Empleado empleado = new Empleado(tfNombre.getText(), 
+                tfApellido.getText(), Integer.parseInt(tfCedula.getText()), tfTelefono.getText(), fecha, 
+                Double.parseDouble(tfSalario.getText()),
+                tfObservacion.getText(), true);
+        emple.guardar(empleado);
+        
     }
     
 }

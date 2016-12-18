@@ -36,13 +36,13 @@ public class Empleado {
         this.estado = false; 
     }
 
-    public Empleado(String nombre, String apellido, int cedula, String telefono, Date fecAlta, Date fecBaja, Double salario, String Observacion, boolean estado) {
+    public Empleado(String nombre, String apellido, int cedula, String telefono, Date fecAlta, Double salario, String Observacion, boolean estado) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.telefono = telefono;
         this.fecAlta = fecAlta;
-        this.fecBaja = fecBaja;
+        
         this.salario = salario;
         this.Observacion = Observacion;
         this.estado = estado;
