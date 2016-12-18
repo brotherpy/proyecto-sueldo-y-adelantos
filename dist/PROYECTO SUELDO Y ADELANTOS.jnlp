@@ -8,8 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="lib\jfoenix.jar" size="2187054" download="eager" />
-    <jar href="lib\postgresql-9.2-1002.jdbc4.jar" size="576248" download="eager" />
+    <jar href="lib/jfoenix.jar" size="2187054" download="eager" />
+    <jar href="lib/postgresql-9.2-1002.jdbc4.jar" size="576248" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="PROYECTO SUELDO Y ADELANTOS" >
     <param name="requiredFXVersion" value="8.0+"/>

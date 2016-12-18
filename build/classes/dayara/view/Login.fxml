@@ -9,9 +9,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayara.Controller.LoginController">
    <children>
-      <JFXTextField fx:id="tfUser" layoutX="226.0" layoutY="78.0" promptText="Usuario" />
-      <JFXPasswordField fx:id="tfPass" layoutX="226.0" layoutY="185.0" promptText="Password" />
-      <JFXButton fx:id="btnIngresar" layoutX="243.0" layoutY="259.0" onAction="#btnIngresarAction" prefHeight="25.0" prefWidth="115.0" text="Ingresar" />
+      <JFXTextField fx:id="tfUser" layoutX="215.0" layoutY="108.0" promptText="Usuario" />
+      <JFXPasswordField fx:id="tfPass" layoutX="215.0" layoutY="213.0" promptText="Password" />
+      <JFXButton fx:id="btnIngresar" buttonType="RAISED" layoutX="232.0" layoutY="288.0" onAction="#btnIngresarAction" prefHeight="41.0" prefWidth="115.0" ripplerFill="WHITE" style="-fx-background-color: #3E5C05;" text="Ingresar" textFill="WHITE" />
       <Text fx:id="txtMensaje" fill="RED" layoutX="164.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="271.13671875">
          <font>
             <Font name="System Bold" size="14.0" />
