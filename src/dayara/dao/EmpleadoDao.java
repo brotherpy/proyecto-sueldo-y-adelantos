@@ -23,9 +23,9 @@ public class EmpleadoDao {
     public void guardar(Empleado emp){
 
         String sql = "INSERT INTO public.empleado("
-                + "nombre, apellido, cedula, telefono, fecalta, fecbaja, salario, observacion, estado) "
+                + "nombre, apellido, cedula, telefono, fecalta,  salario, observacion, estado) "
                 + "VALUES ('"+emp.getNombre()+"', '"+emp.getApellido()+"', "+emp.getCedula()+", "
-                + "'"+emp.getTelefono()+"', '"+emp.getFecAlta()+"', '"+emp.getFecBaja()+"', "
+                + "'"+emp.getTelefono()+"', '"+emp.getFecAlta()+"',  "
                 + ""+emp.getSalario()+", '"+emp.getObservacion()+"', "+emp.isEstado()+");";
         
         Conexion.conectar();

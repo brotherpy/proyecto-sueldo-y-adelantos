@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayara.Controller.AltaFuncionarioController">
+   <children>
+      <JFXTextField fx:id="tfNombre" layoutX="211.0" layoutY="80.0" promptText="Noimbre(s)" />
+      <JFXTextField fx:id="tfApellido" layoutX="439.0" layoutY="79.0" promptText="Apellidos(s)" />
+      <JFXTextField fx:id="tfCedula" layoutX="211.0" layoutY="179.0" promptText="Cedula Nro" />
+      <JFXTextField fx:id="tfTelefono" layoutX="439.0" layoutY="178.0" promptText="Telefono Nro" />
+      <JFXButton buttonType="RAISED" layoutX="319.0" layoutY="480.0" onAction="#btnActionCancelar" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #333A27;" text="Cancelar" textFill="#fcfafa" />
+      <JFXButton buttonType="RAISED" layoutX="464.0" layoutY="480.0" onAction="#btnActionRegistrar" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #3D5C05;" text="Registrar" textFill="#e4d9d9" />
+      <JFXDatePicker fx:id="fechaIngreso" layoutX="215.0" layoutY="277.0" promptText="Fecha de Ingreso" />
+      <JFXTextField fx:id="tfSalario" layoutX="445.0" layoutY="274.0" promptText="Salario" />
+      <JFXTextArea fx:id="tfObservacion" layoutX="250.0" layoutY="341.0" maxWidth="423.0" minWidth="344.0" prefHeight="78.0" prefWidth="344.0" promptText="Observaciones" />
+      <Label layoutX="338.0" layoutY="29.0" text="Nuevo Funcionario">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
