@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -43,12 +44,15 @@ public class LoginController implements Initializable {
         
         if(dao.validarIngreso(tfUser.getText(), tfPass.getText()) == 1){
             
-            Parent parent = FXMLLoader.load(getClass().getResource("/dayara/view/Principal.fxml"));
-            Stage stage = new Stage();
-            Scene scene = new Scene(parent);
-            stage.setScene(scene);
+            Parent principal_parent = FXMLLoader.load(getClass().getResource("/dayara/view/Principal.fxml"));
+           
+            Scene scene_principal = new Scene(principal_parent);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();//ya se usa node para cerrar la ventana anterior(investigar mas)
+            stage.hide(); //el proceso de cerrar la ventana es mas suave con este metodo..
+            stage.setScene(scene_principal);
             stage.setTitle("Ventana Principal");
             stage.show();
+            
             
         }else{
             txtMensaje.setText("Usuario o Password erroneos");

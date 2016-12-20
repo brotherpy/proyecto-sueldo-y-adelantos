@@ -29,7 +29,7 @@ public class ConexionTest {
                 2997198, 
                 "0981680414", 
                 fecha,
-                fecha, 
+                
                 1000000.00, 
                 "", 
                 true);
