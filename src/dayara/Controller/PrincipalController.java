@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -43,8 +44,14 @@ public class PrincipalController implements Initializable {
         // TODO
     }    
     @FXML//boton buscar funcionario
-    private void btnActionBuscar (ActionEvent event){
-         
+    private void btnActionBuscar (ActionEvent event) throws IOException{
+        Parent buscar  = FXMLLoader.load(getClass().getResource("/dayara/view/FuncionariosBusqueda.fxml"));
+        Stage stage = new Stage();
+        Scene scene = new Scene(buscar);
+        stage.setScene(scene);
+        stage.setTitle("Buscar funcionario");
+        stage.show();
+        
     }
     @FXML //boton para registrar un funcionario
     private void btnActionRegistrarFuncionario(ActionEvent event) throws IOException{

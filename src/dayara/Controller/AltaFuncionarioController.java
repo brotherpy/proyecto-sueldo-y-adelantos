@@ -35,7 +35,8 @@ public class AltaFuncionarioController implements Initializable {
     /**
      * Initializes the controller class.
      */
-     @FXML
+    
+    @FXML
     private JFXTextField tfNombre;
 
     @FXML
@@ -46,7 +47,8 @@ public class AltaFuncionarioController implements Initializable {
 
     @FXML
     private JFXTextField tfTelefono;
-     @FXML
+    
+    @FXML
     private JFXDatePicker fechaIngreso;
 
     @FXML
@@ -62,21 +64,32 @@ public class AltaFuncionarioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }   
-      @FXML
+    }
+    
+    @FXML
     void btnActionCancelar(ActionEvent event) {
 
     }
 
     @FXML//boton que se encarga de registrar
     void btnActionRegistrar(ActionEvent event) {
+        
         EmpleadoDao emple = new EmpleadoDao(); 
-        LocalDate date =fechaIngreso.getValue(); //se convierte el tipo datepicker a LocalDate
+        
+        LocalDate date = fechaIngreso.getValue(); //se convierte el tipo datepicker a LocalDate
+        
         Date fecha = Date.valueOf(date); // se pasa el valor LocalDate convertido a Date.sql
-        Empleado empleado = new Empleado(tfNombre.getText(), 
-                tfApellido.getText(), Integer.parseInt(tfCedula.getText()), tfTelefono.getText(), fecha, 
+        
+        Empleado empleado = new Empleado(
+                tfNombre.getText(), 
+                tfApellido.getText(),
+                Integer.parseInt(tfCedula.getText()),
+                tfTelefono.getText(),
+                fecha, 
                 Double.parseDouble(tfSalario.getText()),
-                tfObservacion.getText(), true);
+                tfObservacion.getText(), 
+                true);
+        
         emple.guardar(empleado);
         
     }
