@@ -45,7 +45,7 @@ public class PrincipalController implements Initializable {
     }    
     @FXML//boton buscar funcionario
     private void btnActionBuscar (ActionEvent event) throws IOException{
-        Parent buscar  = FXMLLoader.load(getClass().getResource("/dayara/view/FuncionariosBusqueda.fxml"));
+        Parent buscar  = FXMLLoader.load(getClass().getResource("/dayara/view/AbmFuncionario.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(buscar);
         stage.setScene(scene);

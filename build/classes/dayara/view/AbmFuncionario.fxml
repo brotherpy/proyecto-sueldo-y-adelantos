@@ -30,10 +30,10 @@
                <children>
                   <TableView fx:id="empleadoTable" layoutX="128.0" layoutY="256.0" prefHeight="473.0" prefWidth="482.0" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn fx:id="Nombre" prefWidth="147.0" text="Nombre" />
-                      <TableColumn fx:id="Apellido" prefWidth="145.0" text="Apellido" />
-                        <TableColumn fx:id="Documento" prefWidth="93.0" text="Documento" />
-                        <TableColumn fx:id="Salario" prefWidth="96.0" text="Salario" />
+                      <TableColumn fx:id="tcNombre" prefWidth="147.0" text="Nombre" />
+                      <TableColumn fx:id="tcApellido" prefWidth="145.0" text="Apellido" />
+                        <TableColumn fx:id="tcDocumento" prefWidth="93.0" text="Documento" />
+                        <TableColumn fx:id="tcSalario" prefWidth="96.0" text="Salario" />
                     </columns>
                   </TableView>
                   <JFXButton fx:id="btnRegistrarFuncionario" buttonType="RAISED" layoutX="264.0" layoutY="502.0" onAction="#btnActionAdelanto" prefHeight="32.0" prefWidth="26.0" ripplerFill="#030303" style="-fx-background-radius: 4em; -fx-background-color: #BCF651;" text="+" textAlignment="CENTER" textFill="WHITE">
