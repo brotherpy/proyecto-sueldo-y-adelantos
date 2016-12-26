@@ -165,6 +165,44 @@ public class EmpleadoDao {
         return lista;
 
     }
+    
+    
+    //experimento para llenar tabla
+    
+    public List<Empleado> llenarTabla(){
+        
+        //String sql = "SELECT nombre, apellido, cedula, salario from public.empleado";
+        
+        String sql = "SELECT * FROM empleado WHERE estado = true order by nombre;";
+        
+        List<Empleado> llenar = new ArrayList<>();
+        
+        Conexion.conectar();
+        
+        Empleado empleado;
+        
+        try {
+            ResultSet rs = Conexion.st.executeQuery(sql);
+            
+            System.out.println("Ejecutando llenarTabla" + sql);
+            
+            while (rs.next()) {                
+             empleado = new Empleado();
+             empleado.setNombre(rs.getString("nombre"));
+             empleado.setApellido(rs.getString("apellido"));
+             empleado.setCedula(rs.getInt("cedula"));
+             empleado.setSalario(rs.getDouble("salario"));
+             empleado.setTelefono(rs.getString("telefono"));
+             llenar.add(empleado);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EmpleadoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Conexion.desconectar();
+        return llenar;
+      
+    
+    }
 
     public void eliminar(int codigo) {
 

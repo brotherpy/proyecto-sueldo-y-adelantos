@@ -8,14 +8,19 @@ package dayara.Controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import dayara.dao.EmpleadoDao;
 import dayara.model.Empleado;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -31,16 +36,16 @@ public class AbmFuncionarioController implements Initializable {
     private TableView<Empleado> empleadoTable;
     
     @FXML
-    private TableColumn<Empleado, String> Nombre;
+    private TableColumn<Empleado, String> tcNombre;
 
     @FXML
-    private TableColumn<Empleado, String> Apellido;
+    private TableColumn<Empleado, String> tcApellido;
 
     @FXML
-    private TableColumn<Empleado, String> Documento;
+    private TableColumn<Empleado, Integer> tcDocumento;
 
     @FXML
-    private TableColumn<Empleado, Double> Salario;
+    private TableColumn<Empleado, Double> tcSalario;
     @FXML
     private JFXTextField tfNombre;
 
@@ -64,6 +69,12 @@ public class AbmFuncionarioController implements Initializable {
 
     @FXML
     private JFXButton btnRegistrarFuncionario1;
+    
+    private List <Empleado> listaEmpleados;
+    private ObservableList<Empleado> observableListaEmpleados;
+    
+    private final EmpleadoDao empl = new EmpleadoDao();
+    
 
     @FXML
     void btnActionAdelanto(ActionEvent event) {
@@ -85,10 +96,7 @@ public class AbmFuncionarioController implements Initializable {
 
     }
 
-    @FXML
-    void btnActionGuardar(ActionEvent event) {
-
-    }
+   
 
     @FXML
     void btnActionLiquidacion(ActionEvent event) {
@@ -99,7 +107,28 @@ public class AbmFuncionarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        btnActionGuardar();
+        
+        empleadoTable.getSelectionModel().selectedItemProperty().addListener(
+        (Observable, oldValue, newValue) -> seleccionarItemTableEmpleados(newValue));
+    }
+
+    public void btnActionGuardar(){
+        tcNombre.setCellValueFactory(new PropertyValueFactory<>("Nombre"));
+        tcApellido.setCellValueFactory(new PropertyValueFactory<>("Apellido"));
+        tcDocumento.setCellValueFactory(new PropertyValueFactory<>("Cedula"));
+        tcSalario.setCellValueFactory(new PropertyValueFactory<>("Salario"));
+        
+        listaEmpleados = empl.llenarTabla();
+        
+        observableListaEmpleados = FXCollections.observableArrayList(listaEmpleados);
+        empleadoTable.setItems(observableListaEmpleados);
+    }
+    public void seleccionarItemTableEmpleados(Empleado empleado){
+        tfNombre.setText(empleado.getNombre());
+        tfApellido.setText(empleado.getApellido());
+        tfDocumento.setText(String.valueOf(empleado.getCedula()));
+        tfSalario.setText(String.valueOf(empleado.getSalario()));
+        tfTelefono.setText(empleado.getTelefono());
+    }
 }
