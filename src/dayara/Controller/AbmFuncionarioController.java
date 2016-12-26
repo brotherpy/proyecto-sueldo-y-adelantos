@@ -87,6 +87,10 @@ public class AbmFuncionarioController implements Initializable {
     }
 
     @FXML
+    public void btnActionGuardar(){
+    }
+    
+    @FXML
     void btnActionEditar(ActionEvent event) {
 
     }
@@ -107,13 +111,13 @@ public class AbmFuncionarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnActionGuardar();
+        cargarTablaEmpleado();
         
         empleadoTable.getSelectionModel().selectedItemProperty().addListener(
         (Observable, oldValue, newValue) -> seleccionarItemTableEmpleados(newValue));
     }
 
-    public void btnActionGuardar(){
+    public void cargarTablaEmpleado(){
         tcNombre.setCellValueFactory(new PropertyValueFactory<>("Nombre"));
         tcApellido.setCellValueFactory(new PropertyValueFactory<>("Apellido"));
         tcDocumento.setCellValueFactory(new PropertyValueFactory<>("Cedula"));
@@ -124,6 +128,7 @@ public class AbmFuncionarioController implements Initializable {
         observableListaEmpleados = FXCollections.observableArrayList(listaEmpleados);
         empleadoTable.setItems(observableListaEmpleados);
     }
+    
     public void seleccionarItemTableEmpleados(Empleado empleado){
         tfNombre.setText(empleado.getNombre());
         tfApellido.setText(empleado.getApellido());
