@@ -101,13 +101,15 @@ public class AbmFuncionarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
     }    
 //observableList
     private EmpleadoDao busqueda;
     private List<Empleado> listempleado;
     private ObservableList<Empleado> obslistempleado;
+    
     private void llenarTable() {
+        
        tcNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
        tcApellido.setCellValueFactory(new PropertyValueFactory<>("apellido"));
        tcDocumento.setCellValueFactory(new PropertyValueFactory<>("cedula"));

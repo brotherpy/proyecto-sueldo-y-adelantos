@@ -177,7 +177,7 @@ public class EmpleadoDao {
     Empleado empleado;
         try {
             ResultSet rs = Conexion.st.executeQuery(sql);
-            System.out.println("Ejecutando llenarTaable" + sql);
+            System.out.println("Ejecutando llenarTabla" + sql);
             
             while (rs.next()) {                
              empleado = new Empleado();
