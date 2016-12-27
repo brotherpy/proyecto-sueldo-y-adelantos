@@ -48,7 +48,7 @@ public class EmpleadoDao {
         
         String sql = "UPDATE public.empleado "
                 + "SET nombre='"+emp.getNombre()+"', apellido='"+emp.getApellido()+"', cedula="+emp.getCedula()+", "
-                + "telefono='"+emp.getTelefono()+"', fecalta='"+emp.getFecAlta()+"', fecbaja='"+emp.getFecBaja()+"', "
+                + "telefono='"+emp.getTelefono()+"', fecalta='"+emp.getFecAlta()+"', "
                 + "salario="+emp.getSalario()+", observacion='"+emp.getObservacion()+"', estado="+emp.isEstado()+" "
                 + "WHERE id="+emp.getId()+";";
         
@@ -119,13 +119,13 @@ public class EmpleadoDao {
 
     public List<Empleado> recuperarPorFiltro(String filtro) {
 
-        String sql = "SELECT nombre, apellido, cedula, "
+        String sql = "SELECT id, nombre, apellido, cedula, "
                 + "telefono, fecalta, fecbaja, "
                 + "salario, observacion, estado "
                 + "FROM public.empleado "
                 + "WHERE (nombre LIKE '%"+filtro+"%') "
                 + "or (apellido LIKE '%"+filtro+"%') "
-                + "ORDER BY nombres;";
+                + "ORDER BY nombre;";
         
         List<Empleado> lista = new ArrayList<>();
         
@@ -133,7 +133,7 @@ public class EmpleadoDao {
         
         Conexion.conectar();
         
-        Empleado empl = null;
+        Empleado empleado = null;
         
         ResultSet rs;
         
@@ -144,13 +144,17 @@ public class EmpleadoDao {
             System.out.println("Ejecutando: "+sql);
 
             
-            while (rs.next()) {
-                
-                empl = new Empleado();
-                
-                empl.setId(rs.getInt("codigo"));
-
-                lista.add(empl);
+            while (rs.next()) {                
+             empleado = new Empleado();
+             empleado.setId(rs.getInt("id"));
+             empleado.setNombre(rs.getString("nombre"));
+             empleado.setApellido(rs.getString("apellido"));
+             empleado.setCedula(rs.getInt("cedula"));
+             empleado.setTelefono(rs.getString("telefono"));
+             empleado.setFecAlta(rs.getDate("fecalta"));
+             empleado.setSalario(rs.getDouble("salario"));
+             empleado.setEstado(rs.getBoolean("estado"));
+                lista.add(empleado);
             }
             
         } catch (SQLException ex) {
@@ -167,24 +171,31 @@ public class EmpleadoDao {
     }
     
     
-    //experimento para llenar tabla
-    
-    public List<Empleado> llenarTabla(){
-    String sql = "SELECT nombre, apellido, cedula, salario"
-            + "from public.empleado";
-    List<Empleado> llenar = new ArrayList<>();
-    Conexion.conectar();
-    Empleado empleado;
+       public List<Empleado> llenarTabla(){
+        
+        String sql = "SELECT * FROM empleado WHERE estado = true order by nombre;";
+        
+        List<Empleado> llenar = new ArrayList<>();
+        
+        Conexion.conectar();
+        
+        Empleado empleado;
+        
         try {
             ResultSet rs = Conexion.st.executeQuery(sql);
+            
             System.out.println("Ejecutando llenarTabla" + sql);
             
             while (rs.next()) {                
              empleado = new Empleado();
+             empleado.setId(rs.getInt("id"));
              empleado.setNombre(rs.getString("nombre"));
              empleado.setApellido(rs.getString("apellido"));
              empleado.setCedula(rs.getInt("cedula"));
+             empleado.setTelefono(rs.getString("telefono"));
+             empleado.setFecAlta(rs.getDate("fecalta"));
              empleado.setSalario(rs.getDouble("salario"));
+             empleado.setEstado(rs.getBoolean("estado"));
              llenar.add(empleado);
             }
         } catch (SQLException ex) {

@@ -8,6 +8,8 @@ package dayara.util;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,6 +41,21 @@ public class Utilidad {
         DecimalFormat formato = new DecimalFormat("###,###.##", simbolo);
 
         return formato.format(valor);
+    }
+    
+    public static Date deStringADate(String fecha){
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        
+        String srtFecha = fecha;
+        Date fechaDate = null;
+        
+        try {
+            fechaDate = formato.parse(srtFecha);
+            return fechaDate;
+        } catch (ParseException ex) {
+            return fechaDate;
+        }
+        
     }
 
 }

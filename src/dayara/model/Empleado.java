@@ -33,7 +33,7 @@ public class Empleado {
         this.fecBaja = new Date();
         this.salario = 0d;
         this.Observacion = "";
-        this.estado = false; 
+        this.estado = false;
     }
 
     public Empleado(String nombre, String apellido, int cedula, String telefono, Date fecAlta, Double salario, String Observacion, boolean estado) {
@@ -42,7 +42,18 @@ public class Empleado {
         this.cedula = cedula;
         this.telefono = telefono;
         this.fecAlta = fecAlta;
-        
+        this.salario = salario;
+        this.Observacion = Observacion;
+        this.estado = estado;
+    }
+
+    public Empleado(int id, String nombre, String apellido, int cedula, String telefono, Date fecAlta, Double salario, String Observacion, boolean estado) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.telefono = telefono;
+        this.fecAlta = fecAlta;
         this.salario = salario;
         this.Observacion = Observacion;
         this.estado = estado;
@@ -60,7 +71,9 @@ public class Empleado {
         this.Observacion = Observacion;
         this.estado = estado;
     }
+    
 
+    
     public int getId() {
         return id;
     }
