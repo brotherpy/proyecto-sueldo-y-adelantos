@@ -36,7 +36,16 @@ public class LoginController implements Initializable {
     @FXML
     private JFXButton btnIngresar;
     @FXML
+    private JFXButton btnSalir;
+    @FXML
     private Text txtMensaje;
+    
+    @FXML
+    private void btnSalirAction(){
+        Stage stage = (Stage) btnSalir.getScene().getWindow();
+        stage.close();
+    }
+    
     @FXML
     private void btnIngresarAction(ActionEvent event) throws IOException{
 

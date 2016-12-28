@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -29,8 +30,15 @@ public class PrincipalController implements Initializable {
     @FXML
     private JFXButton btnRegistrarFuncionario;
     @FXML
+    private JFXButton btnSalir;
+    @FXML
     private void btnActionRegistrarFuncionario() throws IOException{
         generarVentana();
+    }
+    @FXML
+    private void btnSalirAction(){
+        Stage stage = (Stage) btnSalir.getScene().getWindow();
+        stage.close();
     }
     @FXML
     private void MenuITemCatastroEmpleadoAction()throws IOException{

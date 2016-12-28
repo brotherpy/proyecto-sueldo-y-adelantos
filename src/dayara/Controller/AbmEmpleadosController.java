@@ -15,8 +15,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -61,7 +63,7 @@ public class AbmEmpleadosController implements Initializable {
     @FXML
     private JFXButton btnGuardar;
     @FXML
-    private JFXButton btnSalir;
+    private JFXButton btnCancelar;
     
     
     private List<Empleado> listaEmpleados;
@@ -146,8 +148,8 @@ public class AbmEmpleadosController implements Initializable {
         }
     }
     @FXML
-    private void btnCancelarAction(){
-        
+    private void btnCancelarAction(Event event){
+        btnCancelar.getScene().getWindow().hide();
     }
 
     private void limpiar() {
