@@ -99,8 +99,8 @@ public class EmpleadoDao {
                 empl.setApellido(rs.getString("apellido"));
                 empl.setCedula(rs.getInt("cedula"));
                 empl.setTelefono(rs.getString("telefono"));
-                empl.setFecAlta(rs.getDate("fecAlta"));
-                empl.setFecBaja(rs.getDate("fecBaja"));
+                empl.setFecAlta(rs.getDate("fecAlta").toLocalDate());//pasar a localdate
+                empl.setFecBaja(rs.getDate("fecBaja").toLocalDate());
                 empl.setSalario(rs.getDouble("salario"));
                 empl.setObservacion(rs.getString("observacion"));
                 empl.setEstado(rs.getBoolean("estado"));
@@ -151,7 +151,7 @@ public class EmpleadoDao {
              empleado.setApellido(rs.getString("apellido"));
              empleado.setCedula(rs.getInt("cedula"));
              empleado.setTelefono(rs.getString("telefono"));
-             empleado.setFecAlta(rs.getDate("fecalta"));
+             empleado.setFecAlta(rs.getDate("fecalta").toLocalDate());
              empleado.setSalario(rs.getDouble("salario"));
              empleado.setEstado(rs.getBoolean("estado"));
                 lista.add(empleado);
@@ -193,7 +193,7 @@ public class EmpleadoDao {
              empleado.setApellido(rs.getString("apellido"));
              empleado.setCedula(rs.getInt("cedula"));
              empleado.setTelefono(rs.getString("telefono"));
-             empleado.setFecAlta(rs.getDate("fecalta"));
+             empleado.setFecAlta(rs.getDate("fecalta").toLocalDate());
              empleado.setSalario(rs.getDouble("salario"));
              empleado.setEstado(rs.getBoolean("estado"));
              llenar.add(empleado);
