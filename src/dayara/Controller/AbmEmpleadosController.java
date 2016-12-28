@@ -6,11 +6,13 @@
 package dayara.Controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import dayara.dao.EmpleadoDao;
 import dayara.model.Empleado;
 import dayara.util.Utilidad;
 import java.net.URL;
+import java.sql.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -31,7 +33,7 @@ import javafx.scene.layout.AnchorPane;
  */
 public class AbmEmpleadosController implements Initializable {
     @FXML
-    private AnchorPane anchorPaneEmpleado;
+    private AnchorPane anchorPaneEmpleados;
     @FXML
     private TableView<Empleado> tableEmpleados;
     @FXML
@@ -52,8 +54,10 @@ public class AbmEmpleadosController implements Initializable {
     private JFXTextField tfCedula;
     @FXML
     private JFXTextField tfTelefono;
+//    @FXML
+//    private JFXTextField tfFechaAlta;
     @FXML
-    private JFXTextField tfFechaAlta;
+    private JFXDatePicker dpFechaAlta;
     @FXML
     private JFXTextField tfSalario;
     @FXML
@@ -65,6 +69,7 @@ public class AbmEmpleadosController implements Initializable {
     @FXML
     private JFXButton btnCancelar;
     
+ 
     
     private List<Empleado> listaEmpleados;
     
@@ -102,7 +107,8 @@ public class AbmEmpleadosController implements Initializable {
         tfApellido.setText(empleado.getApellido());
         tfCedula.setText(String.valueOf(empleado.getCedula()));
         tfTelefono.setText(String.valueOf(empleado.getTelefono()));
-        tfFechaAlta.setText(String.valueOf(empleado.getFecAlta()));
+        //tfFechaAlta.setText(String.valueOf(empleado.getFecAlta()));
+        dpFechaAlta.setValue(empleado.getFecAlta());
         tfSalario.setText(String.valueOf(empleado.getSalario()));
         
     }
@@ -124,7 +130,8 @@ public class AbmEmpleadosController implements Initializable {
                     tfApellido.getText(), 
                     Integer.parseInt(tfCedula.getText()), 
                     tfTelefono.getText(), 
-                    Utilidad.deStringADate(tfFechaAlta.getText()),
+                    //Utilidad.deStringADate(tfFechaAlta.getText()),
+                    dpFechaAlta.getValue(),
                     Double.parseDouble(tfSalario.getText()), 
                     "", 
                     true);
@@ -138,7 +145,8 @@ public class AbmEmpleadosController implements Initializable {
                     tfApellido.getText(), 
                     Integer.parseInt(tfCedula.getText()), 
                     tfTelefono.getText(),
-                    Utilidad.deStringADate(tfFechaAlta.getText()),
+                    //Utilidad.deStringADate(tfFechaAlta.getText()),
+                    dpFechaAlta.getValue(),
                     Double.parseDouble(tfSalario.getText()),
                     "",
                     true);
@@ -159,7 +167,8 @@ public class AbmEmpleadosController implements Initializable {
         tfApellido.setText("");
         tfCedula.setText("");
         tfTelefono.setText("");
-        tfFechaAlta.setText("");
+        //tfFechaAlta.setText("");
+        dpFechaAlta.setValue(null);//resetea el valor
         tfSalario.setText("");
     }
     
