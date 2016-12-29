@@ -5,7 +5,10 @@
  */
 package dayara.model;
 
-import java.util.Date;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import javafx.util.converter.LocalDateTimeStringConverter;
 
 /**
  *
@@ -17,8 +20,8 @@ public class Empleado {
     private String apellido;
     private int cedula;
     private String telefono;
-    private Date fecAlta;
-    private Date fecBaja;
+    private LocalDate fecAlta;
+    private LocalDate fecBaja;
     private Double salario;
     private String Observacion;
     private boolean estado;
@@ -29,14 +32,13 @@ public class Empleado {
         this.apellido = "";
         this.cedula = 0;
         this.telefono = "";
-        this.fecAlta = new Date();
-        this.fecBaja = new Date();
+ 
         this.salario = 0d;
         this.Observacion = "";
         this.estado = false;
     }
 
-    public Empleado(String nombre, String apellido, int cedula, String telefono, Date fecAlta, Double salario, String Observacion, boolean estado) {
+    public Empleado(String nombre, String apellido, int cedula, String telefono, LocalDate fecAlta, Double salario, String Observacion, boolean estado) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
@@ -47,7 +49,7 @@ public class Empleado {
         this.estado = estado;
     }
 
-    public Empleado(int id, String nombre, String apellido, int cedula, String telefono, Date fecAlta, Double salario, String Observacion, boolean estado) {
+    public Empleado(int id, String nombre, String apellido, int cedula, String telefono, LocalDate fecAlta, Double salario, String Observacion, boolean estado) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -59,7 +61,7 @@ public class Empleado {
         this.estado = estado;
     }
 
-    public Empleado(int id, String nombre, String apellido, int cedula, String telefono, Date fecAlta, Date fecBaja, Double salario, String Observacion, boolean estado) {
+    public Empleado(int id, String nombre, String apellido, int cedula, String telefono, LocalDate fecAlta, LocalDate fecBaja, Double salario, String Observacion, boolean estado) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -114,19 +116,19 @@ public class Empleado {
         this.telefono = telefono;
     }
 
-    public Date getFecAlta() {
+    public LocalDate getFecAlta() {
         return fecAlta;
     }
 
-    public void setFecAlta(Date fecAlta) {
+    public void setFecAlta(LocalDate fecAlta) {
         this.fecAlta = fecAlta;
     }
 
-    public Date getFecBaja() {
+    public LocalDate getFecBaja() {
         return fecBaja;
     }
 
-    public void setFecBaja(Date fecBaja) {
+    public void setFecBaja(LocalDate fecBaja) {
         this.fecBaja = fecBaja;
     }
 

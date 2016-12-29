@@ -22,9 +22,8 @@ public class Usuarios {
         this.clave = clave;
     }
 
-    public Usuarios(int id, String usuario, String clave) {
+    public Usuarios(int id, String clave) {
         this.id = id;
-        this.usuario = usuario;
         this.clave = clave;
     }
 

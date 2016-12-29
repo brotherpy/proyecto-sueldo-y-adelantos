@@ -6,7 +6,6 @@
 package dayara.Controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,6 +27,8 @@ public class PrincipalController implements Initializable {
     @FXML
     private MenuItem MenuITemCatastroEmpleado;
     @FXML
+    private MenuItem MenuITemCatastroUsuario;
+    @FXML
     private JFXButton btnRegistrarFuncionario;
     @FXML
     private JFXButton btnSalir;
@@ -44,6 +45,10 @@ public class PrincipalController implements Initializable {
     private void MenuITemCatastroEmpleadoAction()throws IOException{
         generarVentana();
     }
+    @FXML
+    private void MenuITemCatastroUsuarioAction()throws IOException{
+        generarVentanaUsuario();
+    }
     
     private void generarVentana() throws IOException{
         AnchorPane ambEmpleados = (AnchorPane) FXMLLoader.load(getClass().getResource("/dayara/view/AbmEmpleados.fxml"));
@@ -59,5 +64,11 @@ public class PrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }
+
+    private void generarVentanaUsuario() throws IOException {
+        AnchorPane ambUsuarios = (AnchorPane) FXMLLoader.load(getClass().getResource("/dayara/view/AbmUsuarios.fxml"));
+        
+        anchorPanePrincipal.getChildren().setAll(ambUsuarios);
     }
 }
