@@ -11,14 +11,17 @@ import com.jfoenix.controls.JFXTextField;
 import dayara.dao.EmpleadoDao;
 import dayara.model.Empleado;
 import dayara.util.Utilidad;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -54,8 +57,6 @@ public class AbmEmpleadosController implements Initializable {
     private JFXTextField tfCedula;
     @FXML
     private JFXTextField tfTelefono;
-//    @FXML
-//    private JFXTextField tfFechaAlta;
     @FXML
     private JFXDatePicker dpFechaAlta;
     @FXML
@@ -68,6 +69,8 @@ public class AbmEmpleadosController implements Initializable {
     private JFXButton btnGuardar;
     @FXML
     private JFXButton btnCancelar;
+    @FXML
+    private JFXButton btnAdelantos;
     @FXML
     private Text txtMensaje;
     
@@ -207,5 +210,17 @@ public class AbmEmpleadosController implements Initializable {
             validar = true;
         }
         return validar;
+    }
+    
+    @FXML
+    private void btnAdelantosAction() throws IOException {
+        generarVentana();
+    }
+    
+    private void generarVentana() throws IOException{
+        
+        AnchorPane ambEmpleados = (AnchorPane) FXMLLoader.load(getClass().getResource("/dayara/view/MovAdelanto.fxml"));
+        
+        anchorPaneEmpleados.getChildren().setAll(ambEmpleados);
     }
 }
