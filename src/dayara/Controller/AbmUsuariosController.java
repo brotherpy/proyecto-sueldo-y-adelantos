@@ -145,7 +145,8 @@ public class AbmUsuariosController implements Initializable {
             if(tfPassword.getText() == null ? tfConfirmPass.getText() == null : tfPassword.getText().equals(tfConfirmPass.getText())){
                 Usuarios usuario = new Usuarios(
                         tfUsuario.getText(),
-                        tfPassword.getText());
+                        tfPassword.getText(),
+                        true);
                 usuarioDao.guardar(usuario);
                 limpiar();
                 cargarTablaUsuarios();

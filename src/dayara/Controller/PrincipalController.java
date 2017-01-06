@@ -22,12 +22,14 @@ import javafx.stage.Stage;
  * @author Jorge Fabio
  */
 public class PrincipalController implements Initializable {
-@FXML
+    @FXML
     private AnchorPane anchorPanePrincipal;
     @FXML
     private MenuItem MenuITemCatastroEmpleado;
     @FXML
     private MenuItem MenuITemCatastroUsuario;
+    @FXML
+    private MenuItem MenuITemMovimientosAdelantos;
     @FXML
     private JFXButton btnRegistrarFuncionario;
     @FXML
@@ -48,6 +50,10 @@ public class PrincipalController implements Initializable {
     @FXML
     private void MenuITemCatastroUsuarioAction()throws IOException{
         generarVentanaUsuario();
+    }
+    @FXML
+    private void MenuITemMovimientosAdelantosAction()throws IOException{
+        generarVentanaAdelantos();
     }
     
     private void generarVentana() throws IOException{
@@ -70,5 +76,11 @@ public class PrincipalController implements Initializable {
         AnchorPane ambUsuarios = (AnchorPane) FXMLLoader.load(getClass().getResource("/dayara/view/AbmUsuarios.fxml"));
         
         anchorPanePrincipal.getChildren().setAll(ambUsuarios);
+    }
+
+    private void generarVentanaAdelantos() throws IOException {
+        AnchorPane movAdelanto = (AnchorPane) FXMLLoader.load(getClass().getResource("/dayara/view/MovAdelanto.fxml"));
+        
+        anchorPanePrincipal.getChildren().setAll(movAdelanto);
     }
 }

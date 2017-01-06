@@ -4,7 +4,16 @@
  <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
  <project-data-sources>
   <data-source id="DS0">
-   <property key="Logical" value="PlayPen Database" />
+   <property key="Logical" value="proyecto_salario_y_adelantos" />
+   <property key="Connection Type" value="PostgreSQL" />
+   <property key="JDBC URL" value="jdbc:postgresql://localhost:5432/dayara_db" />
+   <property key="UID" value="postgres" />
+   <property key="PWD" value="masterkey" />
+   <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.login" value="" />
+   <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
   </data-source>
  </project-data-sources>
  <source-databases>
@@ -176,7 +185,7 @@
     <folder id="FOLTAB392" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB394" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX46" populated="true" UUID="9474720d-e15b-4c96-867f-bf84803b863c" clustered="false" name="descuentoMovimiento_pk" physicalName="descuentoMovimiento_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX46" populated="true" UUID="9474720d-e15b-4c96-867f-bf84803b863c" clustered="false" name="descuentoMovimiento_pk" physicalName="descuentomovimiento_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC47" populated="true" UUID="1d0f5934-c1ca-498a-b4b5-97f9dbfef811" ascendingOrDescending="UNSPECIFIED" column-ref="COL40" name="id" physicalName="id" />
     </index>
    </folder>
@@ -188,7 +197,7 @@
    <relationship id="REL50" populated="true" UUID="1a193704-13af-4d59-bdf5-d5e73df74076" deferrability="7" deleteRule="3" fk-table-ref="TAB29" fkCardinality="6" identifying="true" name="salarioCabecera_salarioMovimiento_fk" physicalName="salariocabecera_salariomovimiento_fk" pk-table-ref="TAB20" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP51" populated="true" UUID="e4162611-3c0d-4b48-9890-06ab7bf4e394" fk-column-ref="COL30" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL21" />
    </relationship>
-   <relationship id="REL52" populated="true" UUID="0f250c59-f756-46de-9b64-930c1f3d2dca" deferrability="7" deleteRule="3" fk-table-ref="TAB39" fkCardinality="6" identifying="true" name="descuentos_descuentoMovimiento_fk" physicalName="descuentos_descuentoMovimiento_fk" pk-table-ref="TAB34" pkCardinality="2" updateRule="3" >
+   <relationship id="REL52" populated="true" UUID="0f250c59-f756-46de-9b64-930c1f3d2dca" deferrability="7" deleteRule="3" fk-table-ref="TAB39" fkCardinality="6" identifying="true" name="descuentos_descuentoMovimiento_fk" physicalName="descuentos_descuentomovimiento_fk" pk-table-ref="TAB34" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP53" populated="true" UUID="94a52a2b-6e34-478a-b7e4-de0268f91418" fk-column-ref="COL43" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL35" />
    </relationship>
   </relationships>

@@ -13,13 +13,19 @@ public class Usuarios {
     private int id;
     private String usuario;
     private String clave;
+    private boolean estado;
 
     public Usuarios() {
+        this.id = 0;
+        this.usuario = "";
+        this.clave = "";
+        this.estado = false;
     }
 
-    public Usuarios(String usuario, String clave) {
+    public Usuarios(String usuario, String clave, boolean estado) {
         this.usuario = usuario;
         this.clave = clave;
+        this.estado = estado;
     }
 
     public Usuarios(int id, String clave) {
@@ -49,6 +55,14 @@ public class Usuarios {
 
     public void setClave(String clave) {
         this.clave = clave;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
     
     

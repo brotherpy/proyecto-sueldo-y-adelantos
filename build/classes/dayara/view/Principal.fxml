@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayara.Controller.PrincipalController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayara.Controller.PrincipalController">
    <children>
       <MenuBar>
          <menus>
@@ -19,9 +19,9 @@
                   <MenuItem fx:id="MenuITemCatastroUsuario" mnemonicParsing="false" onAction="#MenuITemCatastroUsuarioAction" text="Catastro de Usuarios" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Edit">
+            <Menu mnemonicParsing="false" text="Movimientos">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem fx:id="MenuITemMovimientosAdelantos" mnemonicParsing="false" onAction="#MenuITemMovimientosAdelantosAction" text="Adelantos" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
