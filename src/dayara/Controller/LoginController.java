@@ -9,6 +9,9 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import dayara.dao.LoginDao;
+import dayara.view.ControlarVentana;
+import dayara.view.Login;
+import dayara.view.ScreensController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,7 +30,10 @@ import javafx.stage.Stage;
  *
  * @author Renacer
  */
-public class LoginController implements Initializable {
+public class LoginController implements Initializable, ControlarVentana {
+    ScreensController myController;
+    
+    
     @FXML
     private JFXTextField tfUser;
     @FXML
@@ -51,16 +57,9 @@ public class LoginController implements Initializable {
         LoginDao dao = new LoginDao();
         
         if(dao.validarIngreso(tfUser.getText(), tfPass.getText()) == 1){
-            
-            Parent principal_parent = FXMLLoader.load(getClass().getResource("/dayara/view/Principal.fxml"));
-           
-            Scene scene_principal = new Scene(principal_parent);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();//ya se usa node para cerrar la ventana anterior(investigar mas)
-            stage.hide(); //el proceso de cerrar la ventana es mas suave con este metodo..
-            stage.setScene(scene_principal);
-            stage.setTitle("Ventana Principal");
-            stage.show();
-            
+//            
+//           
+            myController.setScreen(Login.screen2ID);
             
         }else{
             txtMensaje.setText("Usuario o Password erroneos");
@@ -75,5 +74,10 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @Override
+    public void setVentana(ScreensController screenPage) {
+        myController = screenPage;
+    }
     
 }
