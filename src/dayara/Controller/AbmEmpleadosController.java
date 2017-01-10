@@ -14,6 +14,7 @@ import dayara.util.Utilidad;
 import dayara.view.ControlarVentana;
 import dayara.view.Login;
 import dayara.view.ScreensController;
+import javafx.scene.input.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -23,6 +24,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -134,6 +136,12 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
         
         tableEmpleados.getSelectionModel().selectedItemProperty().addListener(
         (observable, oldValue, newValue) -> seleccionarItemsTableCliente(newValue));
+         tfNombre.textProperty().addListener((ov, oldValue, newValue) ->{ //convertir a mayusculas
+        tfNombre.setText(newValue.toUpperCase());
+        });
+       
+        tfNombre.addEventFilter(KeyEvent.KEY_TYPED, validacionLetra(20)); //solo acepta letras hasta 20 caracteres
+        tfCedula.addEventFilter(KeyEvent.KEY_TYPED, validacionNumerica(7));//validacion numerica aplicada a cedula limitando los digitos a 7
     }    
     
     private void cargarTablaEmpleados(){
@@ -219,7 +227,48 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
     
     //**
     //METODOS
-
+    
+    //validacion numerica incluso con maximo de campos
+   
+    public EventHandler<KeyEvent> validacionNumerica(final Integer max_Lengh) {
+    return new EventHandler<KeyEvent>() {
+        @Override
+        public void handle(KeyEvent e) {
+            JFXTextField fXTextField = (JFXTextField) e.getSource();                
+            if (fXTextField.getText().length() >= max_Lengh) {                    
+                e.consume();
+            }
+            if(e.getCharacter().matches("[0-9.]")){ 
+                if(fXTextField.getText().contains(".") && e.getCharacter().matches("[.]")){
+                    e.consume();
+                }else if(fXTextField.getText().length() == 0 && e.getCharacter().matches("[.]")){
+                    e.consume(); 
+                }
+            }else{
+                e.consume();
+            }
+        }
+    };
+}    
+    
+    
+    //validacion solo letras incluso maximo de campos
+    
+    public EventHandler<KeyEvent> validacionLetra(final Integer max_Lengh) {
+    return new EventHandler<KeyEvent>() {
+        @Override
+        public void handle(KeyEvent e) {
+            JFXTextField tfFXTextField = (JFXTextField) e.getSource();                
+            if (tfFXTextField.getText().length() >= max_Lengh) {                    
+                e.consume();
+            }
+            if(e.getCharacter().matches("[A-Za-z]")){ 
+            }else{
+                e.consume();
+            }
+        }
+    };
+} 
     private void limpiar() {
         tfBusqueda.setText("");
         tfCodigo.setText("");

@@ -72,7 +72,10 @@ public class LoginController implements Initializable, ControlarVentana {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        tfUser.textProperty().addListener((ov, oldValue, newValue) ->{ //convertir a mayusculas
+        tfUser.setText(newValue.toUpperCase());
+        });
+  
     }    
 
     @Override
