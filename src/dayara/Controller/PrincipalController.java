@@ -6,6 +6,9 @@
 package dayara.Controller;
 
 import com.jfoenix.controls.JFXButton;
+import dayara.view.ControlarVentana;
+import dayara.view.Login;
+import dayara.view.ScreensController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,7 +24,10 @@ import javafx.stage.Stage;
  *
  * @author Jorge Fabio
  */
-public class PrincipalController implements Initializable {
+public class PrincipalController implements Initializable, ControlarVentana {
+    ScreensController mycontroller;
+    
+    
     @FXML
     private AnchorPane anchorPanePrincipal;
     @FXML
@@ -36,7 +42,8 @@ public class PrincipalController implements Initializable {
     private JFXButton btnSalir;
     @FXML
     private void btnActionRegistrarFuncionario() throws IOException{
-        generarVentana();
+        //generarVentana();
+        mycontroller.setScreen(Login.screen3ID);
     }
     @FXML
     private void btnSalirAction(){
@@ -82,5 +89,10 @@ public class PrincipalController implements Initializable {
         AnchorPane movAdelanto = (AnchorPane) FXMLLoader.load(getClass().getResource("/dayara/view/MovAdelanto.fxml"));
         
         anchorPanePrincipal.getChildren().setAll(movAdelanto);
+    }
+
+    @Override
+    public void setVentana(ScreensController screenPage) {
+        mycontroller = screenPage;
     }
 }

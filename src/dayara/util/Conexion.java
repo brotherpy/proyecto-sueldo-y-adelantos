@@ -20,8 +20,8 @@ public class Conexion {
     
     public static final String DB = "dayara_db";
     public static final String URL = "jdbc:postgresql://localhost:5432/"+DB;
-    public static final String USER = "postgres";
-    public static final String PASSWORD = "masterkey";
+    public static final String USER = "brother";
+    public static final String PASSWORD = "brother";
     public static Connection con = null;
     public static Statement st = null;
 

@@ -11,6 +11,10 @@ import com.jfoenix.controls.JFXTextField;
 import dayara.dao.EmpleadoDao;
 import dayara.model.Empleado;
 import dayara.util.Utilidad;
+import dayara.view.ControlarVentana;
+import dayara.view.Login;
+import dayara.view.ScreensController;
+import javafx.scene.input.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -20,23 +24,31 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author Jorge Fabio
  */
-public class AbmEmpleadosController implements Initializable {
+public class AbmEmpleadosController implements Initializable, ControlarVentana {
+    ScreensController myController;
+    
+    
     @FXML
     private AnchorPane anchorPaneEmpleados;
+    
     @FXML
     private TableView<Empleado> tableEmpleados;
     @FXML
@@ -73,7 +85,38 @@ public class AbmEmpleadosController implements Initializable {
     private JFXButton btnAdelantos;
     @FXML
     private Text txtMensaje;
+    //
+    ///
+    ///
+    //inicializando elementos de adelanto
+    ///
+    ///
+        @FXML
+    private AnchorPane anchorPaneMovAdelanto;
+
+   
+    @FXML
+    private JFXTextField tfMonto;
+
+    @FXML
+    private JFXDatePicker dpFechaAdelanto;
+
+
+    @FXML
+    private TableView<?> tableAdelantos;
+
+    @FXML
+    private TableColumn<?, ?> TablaAdelantoColumnAdelanto;
+
+    @FXML
+    private TableColumn<?, ?> TablaAdelantoColumnFecha;
+
+    @FXML
+    private TableColumn<?, ?> TablaAdelantoColumnMonto;
     
+    ///
+    ///fin de la inicializacion
+    ///
  
     
     private List<Empleado> listaEmpleados;
@@ -93,6 +136,12 @@ public class AbmEmpleadosController implements Initializable {
         
         tableEmpleados.getSelectionModel().selectedItemProperty().addListener(
         (observable, oldValue, newValue) -> seleccionarItemsTableCliente(newValue));
+         tfNombre.textProperty().addListener((ov, oldValue, newValue) ->{ //convertir a mayusculas
+        tfNombre.setText(newValue.toUpperCase());
+        });
+       
+        tfNombre.addEventFilter(KeyEvent.KEY_TYPED, validacionLetra(20)); //solo acepta letras hasta 20 caracteres
+        tfCedula.addEventFilter(KeyEvent.KEY_TYPED, validacionNumerica(7));//validacion numerica aplicada a cedula limitando los digitos a 7
     }    
     
     private void cargarTablaEmpleados(){
@@ -117,6 +166,9 @@ public class AbmEmpleadosController implements Initializable {
         tfSalario.setText(Utilidad.formatoValorS(empleado.getSalario()));
         
     }
+    
+    //**
+    //Botones de accion
     @FXML
     private void btnBuscarAction(){
         buscarPorFiltro();
@@ -164,7 +216,59 @@ public class AbmEmpleadosController implements Initializable {
     private void btnCancelarAction(Event event){
         btnCancelar.getScene().getWindow().hide();
     }
-
+    @FXML
+    private void btnAdelantosAction(Event event) {
+        
+     myController.setScreen(Login.screen4ID);
+        
+    }
+    
+    
+    
+    //**
+    //METODOS
+    
+    //validacion numerica incluso con maximo de campos
+   
+    public EventHandler<KeyEvent> validacionNumerica(final Integer max_Lengh) {
+    return new EventHandler<KeyEvent>() {
+        @Override
+        public void handle(KeyEvent e) {
+            JFXTextField fXTextField = (JFXTextField) e.getSource();                
+            if (fXTextField.getText().length() >= max_Lengh) {                    
+                e.consume();
+            }
+            if(e.getCharacter().matches("[0-9.]")){ 
+                if(fXTextField.getText().contains(".") && e.getCharacter().matches("[.]")){
+                    e.consume();
+                }else if(fXTextField.getText().length() == 0 && e.getCharacter().matches("[.]")){
+                    e.consume(); 
+                }
+            }else{
+                e.consume();
+            }
+        }
+    };
+}    
+    
+    
+    //validacion solo letras incluso maximo de campos
+    
+    public EventHandler<KeyEvent> validacionLetra(final Integer max_Lengh) {
+    return new EventHandler<KeyEvent>() {
+        @Override
+        public void handle(KeyEvent e) {
+            JFXTextField tfFXTextField = (JFXTextField) e.getSource();                
+            if (tfFXTextField.getText().length() >= max_Lengh) {                    
+                e.consume();
+            }
+            if(e.getCharacter().matches("[A-Za-z]")){ 
+            }else{
+                e.consume();
+            }
+        }
+    };
+} 
     private void limpiar() {
         tfBusqueda.setText("");
         tfCodigo.setText("");
@@ -212,15 +316,22 @@ public class AbmEmpleadosController implements Initializable {
         return validar;
     }
     
-    @FXML
-    private void btnAdelantosAction() throws IOException {
-        generarVentana();
-    }
     
-    private void generarVentana() throws IOException{
-        
-        AnchorPane ambEmpleados = (AnchorPane) FXMLLoader.load(getClass().getResource("/dayara/view/MovAdelanto.fxml"));
-        
-        anchorPaneEmpleados.getChildren().setAll(ambEmpleados);
+//    private void generarVentana() throws IOException{
+//        
+//        AnchorPane ambEmpleados = (AnchorPane) FXMLLoader.load(getClass().getResource("/dayara/view/MovAdelanto.fxml"));
+//        
+//       
+//        anchorPaneEmpleados.getChildren().setAll(ambEmpleados);
+//        
+////        Stage stage = new Stage();
+////        stage.setScene(new Scene(ambEmpleados));
+////        
+////        stage.show();
+//    }
+
+    @Override
+    public void setVentana(ScreensController screenPage) {
+        myController = screenPage;
     }
 }

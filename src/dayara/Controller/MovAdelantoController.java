@@ -11,6 +11,8 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import dayara.dao.EmpleadoDao;
 import dayara.model.Empleado;
+import dayara.view.ControlarVentana;
+import dayara.view.ScreensController;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -27,7 +29,8 @@ import javafx.scene.text.Text;
  *
  * @author Jorge Fabio
  */
-public class MovAdelantoController implements Initializable {
+public class MovAdelantoController implements Initializable, ControlarVentana {
+    ScreensController myController;
     @FXML
     private AnchorPane anchorPaneMovAdelanto;
     @FXML
@@ -72,7 +75,8 @@ public class MovAdelantoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        
     }    
     
     @FXML
@@ -83,5 +87,10 @@ public class MovAdelantoController implements Initializable {
     @FXML
     private void btnCancelarAction(){
         
+    }
+
+    @Override
+    public void setVentana(ScreensController screenPage) {
+       myController = screenPage;
     }
 }

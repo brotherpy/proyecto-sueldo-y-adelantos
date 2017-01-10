@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" fx:id="anchorPaneMovAdelanto" prefHeight="579.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayara.Controller.MovAdelantoController">
+   <children>
+      <SplitPane dividerPositions="0.40225563909774437" prefHeight="783.0" prefWidth="956.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="48.0" layoutY="14.0" text="Carga de adelantos por funcionario">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="tfCodigo" layoutX="34.0" layoutY="149.0" promptText="Codigo" />
+                  <JFXTextField fx:id="tfNombre" layoutX="34.0" layoutY="180.0" promptText="Nombres" />
+                  <JFXTextField fx:id="tfApellido" layoutX="34.0" layoutY="211.0" promptText="Apellidos" />
+                  <JFXComboBox fx:id="jcbAdelantos" layoutX="35.0" layoutY="242.0" prefHeight="25.0" prefWidth="149.0" promptText="Adelantos" />
+                  <JFXTextField fx:id="tfMonto" layoutX="34.0" layoutY="273.0" promptText="Monto" />
+                  <JFXDatePicker fx:id="dpFechaAdelanto" layoutX="35.0" layoutY="305.0" promptText="Fecha de adelanto" />
+                  <JFXButton fx:id="btnGuardar" buttonType="RAISED" layoutX="119.0" layoutY="454.0" onAction="#btnGuardarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #3D5C05;" text="Guardar" textFill="#e4d9d9" />
+                  <JFXButton fx:id="btnCancelar" buttonType="RAISED" layoutX="220.0" layoutY="454.0" onAction="#btnCancelarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #333A27;" text="Cancelar" textFill="#fcfafa" />
+                  <Text fx:id="txtMensaje" fill="RED" layoutX="21.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="273.7294921875">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="tableAdelantos" layoutX="50.0" layoutY="50.0" prefHeight="573.0" prefWidth="536.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columns>
+                        <TableColumn fx:id="TablaAdelantoColumnAdelanto" prefWidth="174.0" text="Adelanto" />
+                        <TableColumn fx:id="TablaAdelantoColumnFecha" prefWidth="181.0" text="Fecha" />
+                        <TableColumn fx:id="TablaAdelantoColumnMonto" prefWidth="178.0" text="Monto" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
