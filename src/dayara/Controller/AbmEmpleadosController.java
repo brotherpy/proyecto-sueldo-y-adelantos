@@ -20,6 +20,8 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +30,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -218,8 +221,26 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
     }
     @FXML
     private void btnAdelantosAction(Event event) {
-        
-     myController.setScreen(Login.screen4ID);
+     
+       
+            FXMLLoader Loader = new FXMLLoader();
+            Loader.setLocation(getClass().getResource("/dayara/view/MovAdelanto.fxml"));
+             try {
+            Loader.load();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(AbmEmpleadosController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+             MovAdelantoController movAdelantoController = Loader.getController();
+             movAdelantoController.llenarDatos(tableEmpleados.getSelectionModel().getSelectedItem().getId());
+             
+        Parent parent = Loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.show();
+      
+             
+     
         
     }
     
@@ -316,19 +337,7 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
         return validar;
     }
     
-    
-//    private void generarVentana() throws IOException{
-//        
-//        AnchorPane ambEmpleados = (AnchorPane) FXMLLoader.load(getClass().getResource("/dayara/view/MovAdelanto.fxml"));
-//        
-//       
-//        anchorPaneEmpleados.getChildren().setAll(ambEmpleados);
-//        
-////        Stage stage = new Stage();
-////        stage.setScene(new Scene(ambEmpleados));
-////        
-////        stage.show();
-//    }
+
 
     @Override
     public void setVentana(ScreensController screenPage) {

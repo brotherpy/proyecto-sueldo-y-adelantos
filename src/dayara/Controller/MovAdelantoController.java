@@ -75,9 +75,12 @@ public class MovAdelantoController implements Initializable, ControlarVentana {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
-    }    
+         
+    }
+    
+    public void llenarDatos(int codigo){
+        System.out.println(codigo); //imprime el codigo que recibe de la ventana anterior
+    }
     
     @FXML
     private void btnGuardarAction(){
