@@ -92,7 +92,7 @@
   <table id="TAB21" populated="true" UUID="b0e96196-ff5c-4245-adf9-840c270cd974" name="salarioCabecera" objectType="TABLE" physicalName="salarioCabecera" >
    <remarks></remarks>
    <folder id="FOLTAB211" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL22" populated="true" UUID="35882429-766c-4e39-aba9-323720f13b70" autoIncrement="false" autoIncrementSequenceName="salarioCabecera_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL22" populated="true" UUID="35882429-766c-4e39-aba9-323720f13b70" autoIncrement="true" autoIncrementSequenceName="salarioCabecera_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="2" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL23" populated="true" UUID="41df8653-60d3-4812-b056-f3d1a82d8a97" autoIncrement="false" autoIncrementSequenceName="salarioCabecera_idEmpleado_seq" defaultValue="" name="idEmpleado" nullable="0" physicalName="idEmpleado" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -144,7 +144,7 @@
   <table id="TAB35" populated="true" UUID="198e3a0d-87dc-4afe-8afd-79ceb148450e" name="descuentoMovimiento" objectType="TABLE" physicalName="descuentoMovimiento" >
    <remarks></remarks>
    <folder id="FOLTAB351" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL36" populated="true" UUID="22fdef70-3d6f-4cf8-a322-928d5f5d5439" autoIncrement="false" autoIncrementSequenceName="descuentoMovimiento_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="4" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL36" populated="true" UUID="22fdef70-3d6f-4cf8-a322-928d5f5d5439" autoIncrement="true" autoIncrementSequenceName="descuentoMovimiento_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="4" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL37" populated="true" UUID="135e4816-1383-4767-a3f0-1e09a50a3f88" autoIncrement="false" autoIncrementSequenceName="descuentoMovimiento_idEmpleado_seq" defaultValue="" name="idEmpleado" nullable="0" physicalName="idEmpleado" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -181,7 +181,7 @@
     <column-mapping id="CMP46" populated="true" UUID="668da586-0561-40f0-962e-ef46c999f849" fk-column-ref="COL23" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL9" />
    </relationship>
    <relationship id="REL47" populated="true" UUID="b4d005dc-ed52-4b96-96f3-3e321c376075" deferrability="7" deleteRule="3" fk-table-ref="TAB35" fkCardinality="6" identifying="true" name="empleado_descuentoMovimiento_fk" physicalName="empleado_descuentomovimiento_fk" pk-table-ref="TAB8" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP48" populated="true" UUID="74218917-6115-4601-8f2d-47c16b42387a" fk-column-ref="COL36" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL9" />
+    <column-mapping id="CMP48" populated="true" UUID="c3f0cd84-d59d-4f54-82cd-e551e90f309e" fk-column-ref="COL37" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL9" />
    </relationship>
    <relationship id="REL49" populated="true" UUID="0f250c59-f756-46de-9b64-930c1f3d2dca" deferrability="7" deleteRule="3" fk-table-ref="TAB35" fkCardinality="6" identifying="true" name="descuentos_descuentoMovimiento_fk" physicalName="descuentos_descuentomovimiento_fk" pk-table-ref="TAB30" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP50" populated="true" UUID="94a52a2b-6e34-478a-b7e4-de0268f91418" fk-column-ref="COL39" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
@@ -192,7 +192,7 @@
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
-  <table-pane table-ref="TAB1" x="86" y="96" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB1" x="83" y="95" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB8" x="639" y="20" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB21" x="83" y="278" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB30" x="697" y="494" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>

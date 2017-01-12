@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,51 +21,25 @@ import java.util.logging.Logger;
  */
 public class DescuentosDao {
     
-    public void guardar(Descuentos desc){
+    public void guardar(Descuentos adelanto){
 
-        String sql = "INSERT INTO public.descuentos(concepto) VALUES ('"+desc.getConcepto()+"');";
+        String sql = "INSERT INTO public.descuentos(concepto) VALUES ('"+adelanto.getConcepto()+"');";
         
         Conexion.conectar();
 
         try {
 
             Conexion.st.execute(sql);
-            System.out.println("Ejecutando: "+sql);
+            System.out.println("Ejecutando: " + sql);
 
         } catch (SQLException ex) {
 
             Logger.getLogger(DescuentosDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error al ejecutar "+ ex);
+            System.out.println("Error al ejecutar "+ ex + ", " + sql);
 
         }
 
         Conexion.desconectar();
-
-    }
-
-    public boolean modificar(Descuentos desc) {
-        
-        String sql = "UPDATE public.descuentos SET concepto='"+desc.getConcepto()+"' WHERE id="+desc.getId()+";";
-        
-        boolean resultado = false;
-        
-        Conexion.conectar();
-
-        try {
-        
-            resultado = Conexion.st.execute(sql);
-            System.out.println("Ejecutando: "+sql);
-            
-        } catch (SQLException ex) {
-            
-            Logger.getLogger(DescuentosDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error al ejecutar "+sql+ ex);
-            
-        }
-
-        Conexion.desconectar();
-        
-        return resultado;
 
     }
 
@@ -91,7 +66,7 @@ public class DescuentosDao {
             
         } catch (SQLException ex) {
             Logger.getLogger(DescuentosDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error al ejecutar SQL: "+ex);
+            System.out.println("Error al ejecutar "+ ex + ", " + sql);
 
         }
  
@@ -100,19 +75,15 @@ public class DescuentosDao {
         return desc;
     }
 
-    public List<Descuentos> recuperarPorFiltro(String filtro) {
+    public List<Descuentos> recuperarTodo() {
 
-        String sql = "SELECT id, concepto FROM public.descuentos "
-                + "WHERE (nombre LIKE '%"+filtro+"%') "
-                + "ORDER BY nombres;";
+        String sql = "SELECT * FROM public.descuentos ORDER BY concepto;";
         
         List<Descuentos> lista = new ArrayList<>();
         
-        System.out.println("SQL = " + sql);
-        
         Conexion.conectar();
         
-        Descuentos empl = null;
+        Descuentos empl;
         
         ResultSet rs;
         
@@ -124,10 +95,10 @@ public class DescuentosDao {
 
             
             while (rs.next()) {
-                
                 empl = new Descuentos();
                 
-                empl.setId(rs.getInt("codigo"));
+                empl.setId(rs.getInt("id"));
+                empl.setConcepto(rs.getString("concepto"));
 
                 lista.add(empl);
             }
@@ -135,7 +106,7 @@ public class DescuentosDao {
         } catch (SQLException ex) {
             
             Logger.getLogger(DescuentosDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error al ejecutar "+ex);
+            System.out.println("Error al ejecutar "+ ex + ", " + sql);
             
         }
 
@@ -145,27 +116,28 @@ public class DescuentosDao {
 
     }
 
-    public void eliminar(int codigo) {
-
-        String sql = "";
+    public Vector<Descuentos> cargarComboBox() {
         
-        System.out.println("SQL = "+sql);
+        String sql = "SELECT id, concepto FROM public.descuentos;";
         
+        Vector<Descuentos> ciudadList = new Vector<>();
+        Descuentos ciu;
         Conexion.conectar();
-
         try {
-
-            Conexion.st.execute(sql);
-            System.out.println("Ejecutando: "+sql);
-
+            ResultSet rs = Conexion.st.executeQuery(sql);
+            System.out.println("SQL "+sql);
+            
+            while(rs.next()){
+                ciu = new Descuentos();
+                ciu.setId(rs.getInt("id"));
+                ciu.setConcepto(rs.getString("concepto"));
+                ciudadList.add(ciu);
+            }
         } catch (SQLException ex) {
-
             Logger.getLogger(DescuentosDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error al ejecutar "+ ex);
-
+            System.out.println("Error al ejecutar "+ ex + ", " + sql);
         }
-
         Conexion.desconectar();
-
+        return ciudadList;
     }
 }

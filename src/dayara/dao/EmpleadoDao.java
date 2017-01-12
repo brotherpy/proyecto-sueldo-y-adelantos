@@ -100,7 +100,7 @@ public class EmpleadoDao {
                 empl.setCedula(rs.getInt("cedula"));
                 empl.setTelefono(rs.getString("telefono"));
                 empl.setFecAlta(rs.getDate("fecAlta").toLocalDate());//pasar a localdate
-                empl.setFecBaja(rs.getDate("fecBaja").toLocalDate());
+//                empl.setFecBaja(rs.getDate("fecBaja").toLocalDate());
                 empl.setSalario(rs.getDouble("salario"));
                 empl.setObservacion(rs.getString("observacion"));
                 empl.setEstado(rs.getBoolean("estado"));

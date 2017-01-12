@@ -7,8 +7,6 @@ package dayara.model;
 
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import javafx.util.converter.LocalDateTimeStringConverter;
 
 /**
  *

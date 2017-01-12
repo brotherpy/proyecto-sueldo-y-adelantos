@@ -164,7 +164,6 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
         tfApellido.setText(empleado.getApellido());
         tfCedula.setText(String.valueOf(empleado.getCedula()));
         tfTelefono.setText(String.valueOf(empleado.getTelefono()));
-        //tfFechaAlta.setText(String.valueOf(empleado.getFecAlta()));
         dpFechaAlta.setValue(empleado.getFecAlta());
         tfSalario.setText(Utilidad.formatoValorS(empleado.getSalario()));
         
@@ -232,12 +231,14 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
             Logger.getLogger(AbmEmpleadosController.class.getName()).log(Level.SEVERE, null, ex);
         }
              MovAdelantoController movAdelantoController = Loader.getController();
-             movAdelantoController.llenarDatos(tableEmpleados.getSelectionModel().getSelectedItem().getId());
+             movAdelantoController.tfCodigo.setText(tableEmpleados.getSelectionModel().getSelectedItem().getId()+"");
              
         Parent parent = Loader.getRoot();
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.show();
+        movAdelantoController.buscarPorFuncionario();
+        movAdelantoController.cargarFuncionario();
       
              
      
