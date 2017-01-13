@@ -43,4 +43,11 @@ public class Descuentos {
     public void setConcepto(String concepto) {
         this.concepto = concepto;
     }
+
+    @Override
+    public String toString() {
+        return this.concepto;
+    }
+    
+    
 }

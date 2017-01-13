@@ -19,7 +19,7 @@ import dayara.util.Conexion;
  *
  * @author Jorge Fabio
  */
-public class AdelantoMovimientoDao {
+public class DescuentosMovimientoDao {
     
     public void guardar(DescuentoMovimiento adelanto){
 
@@ -37,7 +37,7 @@ public class AdelantoMovimientoDao {
 
         } catch (SQLException ex) {
 
-            Logger.getLogger(AdelantoMovimientoDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DescuentosMovimientoDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Error al ejecutar "+ ex+", "+sql);
 
         }
@@ -71,7 +71,7 @@ public class AdelantoMovimientoDao {
                 adelanto = new DescuentoMovimiento();
                 
                 adelanto.setId(rs.getInt("id"));
-                adelanto.setFecha(rs.getDate("fecha"));
+                adelanto.setFecha(rs.getDate("fecha").toLocalDate());
                 adelanto.setIdAdelanto(rs.getInt("idadelanto"));
                 adelanto.setMonto(rs.getDouble("monto"));
 
@@ -80,7 +80,7 @@ public class AdelantoMovimientoDao {
             
         } catch (SQLException ex) {
             
-            Logger.getLogger(AdelantoMovimientoDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DescuentosMovimientoDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Error al ejecutar "+ex);
             
         }
@@ -104,7 +104,7 @@ public class AdelantoMovimientoDao {
 
         } catch (SQLException ex) {
 
-            Logger.getLogger(AdelantoMovimientoDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DescuentosMovimientoDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Error al ejecutar "+ ex+", "+sql);
 
         }
@@ -112,7 +112,7 @@ public class AdelantoMovimientoDao {
         Conexion.desconectar();
     }
     
-    public DescuentoMovimiento recuperarPorMovimiento(int movimiento) {
+    public DescuentoMovimiento recuperarMovimientoPorFuncionario(int movimiento) {
         
         String sql = "SELECT idempleado, fecha, idadelanto, monto FROM public.descuentomovimiento WHERE id = "+movimiento+" AND estado = 'PENDIENTE';";
         
@@ -130,13 +130,13 @@ public class AdelantoMovimientoDao {
             if (rs.next()) {
                 adelanto = new DescuentoMovimiento();
                 adelanto.setIdEmpleado(rs.getInt("idempleado"));
-                adelanto.setFecha(rs.getDate("fecha"));
+                adelanto.setFecha(rs.getDate("fecha").toLocalDate());
                 adelanto.setIdAdelanto(rs.getInt("idadelanto")-1);
                 adelanto.setMonto(rs.getDouble("monto"));
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(AdelantoMovimientoDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DescuentosMovimientoDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Error al ejecutar SQL: "+ex);
 
         }
@@ -146,7 +146,7 @@ public class AdelantoMovimientoDao {
         return adelanto;
     }
     
-    public List<DescuentoDetalle> recuperarTodoPorFuncionario(int movimiento) {
+    public List<DescuentoDetalle> recuperarTodoPorFuncionario(int funcionario) {
         
         String sql = "SELECT descuentomovimiento.\"id\" AS id, "
                 + "descuentos.\"concepto\" AS concepto, "
@@ -155,7 +155,7 @@ public class AdelantoMovimientoDao {
                 + "FROM \"public\".\"descuentomovimiento\" descuentomovimiento "
                 + "INNER JOIN \"public\".\"descuentos\" descuentos "
                 + "ON descuentomovimiento.\"idadelanto\" = descuentos.\"id\" "
-                + "WHERE idempleado = 1 AND estado = 'PENDIENTE';";
+                + "WHERE idempleado = "+funcionario+" AND estado = 'PENDIENTE';";
         
         Conexion.conectar();
         
@@ -182,7 +182,7 @@ public class AdelantoMovimientoDao {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(AdelantoMovimientoDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DescuentosMovimientoDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Error al ejecutar SQL: "+ex);
 
         }

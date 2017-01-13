@@ -35,6 +35,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -88,6 +90,8 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
     private JFXButton btnAdelantos;
     @FXML
     private Text txtMensaje;
+    @FXML
+    private ImageView ciImagen;
     //
     ///
     ///
@@ -166,7 +170,7 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
         tfTelefono.setText(String.valueOf(empleado.getTelefono()));
         dpFechaAlta.setValue(empleado.getFecAlta());
         tfSalario.setText(Utilidad.formatoValorS(empleado.getSalario()));
-        
+        cargarImagenCI();
     }
     
     //**
@@ -237,12 +241,10 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.show();
+        
         movAdelantoController.buscarPorFuncionario();
         movAdelantoController.cargarFuncionario();
-      
-             
-     
-        
+        movAdelantoController.cargarComboBox();  
     }
     
     
@@ -298,7 +300,6 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
         tfApellido.setText("");
         tfCedula.setText("");
         tfTelefono.setText("");
-        //tfFechaAlta.setText("");
         dpFechaAlta.setValue(LocalDate.now());//resetea el valor
         tfSalario.setText("");
         txtMensaje.setText("");
@@ -337,11 +338,14 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
         }
         return validar;
     }
-    
-
-
+ 
     @Override
     public void setVentana(ScreensController screenPage) {
         myController = screenPage;
+    }
+    
+    private void cargarImagenCI(){
+        Image imag = new Image(getClass().getResourceAsStream("/dayara/images/"+tfCedula.getText()+".jpg"));
+        ciImagen.setImage(imag);
     }
 }

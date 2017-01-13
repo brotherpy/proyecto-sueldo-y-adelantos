@@ -5,7 +5,7 @@
  */
 package dayara.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -15,7 +15,7 @@ import java.util.Date;
 public class DescuentoMovimiento {
     private int id;
     private int idEmpleado;
-    private Date fecha;
+    private LocalDate fecha;
     private int idAdelanto;
     private Double monto;
     private String estado;
@@ -23,13 +23,12 @@ public class DescuentoMovimiento {
     public DescuentoMovimiento() {
         this.id = 0;
         this.idEmpleado = 0;
-        this.fecha = new Date();
         this.idAdelanto = 0;
         this.monto = 0d;
         this.estado = "";
     }
 
-    public DescuentoMovimiento(int idEmpleado, Date fecha, int idAdelanto, Double monto, String estado) {
+    public DescuentoMovimiento(int idEmpleado, LocalDate fecha, int idAdelanto, Double monto, String estado) {
         this.idEmpleado = idEmpleado;
         this.fecha = fecha;
         this.idAdelanto = idAdelanto;
@@ -37,7 +36,7 @@ public class DescuentoMovimiento {
         this.estado = estado;
     }
 
-    public DescuentoMovimiento(int id, int idEmpleado, Date fecha, int idAdelanto, Double monto, String estado) {
+    public DescuentoMovimiento(int id, int idEmpleado, LocalDate fecha, int idAdelanto, Double monto, String estado) {
         this.id = id;
         this.idEmpleado = idEmpleado;
         this.fecha = fecha;
@@ -62,11 +61,11 @@ public class DescuentoMovimiento {
         this.idEmpleado = idEmpleado;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

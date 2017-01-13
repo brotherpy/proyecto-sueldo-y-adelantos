@@ -6,29 +6,33 @@
 package dayara.Controller;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
-import dayara.dao.AdelantoMovimientoDao;
+import dayara.dao.DescuentosMovimientoDao;
 import dayara.dao.DescuentosDao;
 import dayara.dao.EmpleadoDao;
 import dayara.model.DescuentoDetalle;
+import dayara.model.DescuentoMovimiento;
+import dayara.model.Descuentos;
 import dayara.model.Empleado;
 import dayara.view.ControlarVentana;
 import dayara.view.ScreensController;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import javax.swing.DefaultComboBoxModel;
 
 /**
  * FXML Controller class
@@ -54,11 +58,11 @@ public class MovAdelantoController implements Initializable, ControlarVentana {
     @FXML
     private JFXTextField tfApellido;
     @FXML
-    private JFXComboBox jcbAdelantos;
+    private ComboBox <Descuentos> jcbAdelantos;
     @FXML
     private JFXTextField tfMonto;
     @FXML
-    private JFXDatePicker dpFechaAlta;
+    private JFXDatePicker dpFechaAdelanto;
     @FXML
     private JFXButton btnGuardar;
     @FXML
@@ -66,15 +70,22 @@ public class MovAdelantoController implements Initializable, ControlarVentana {
     @FXML
     private Text txtMensaje;
     
+    
+    private final DescuentosDao daoDescuentos = new DescuentosDao();
+    private final DescuentosMovimientoDao daoDescuentoMovimiento = new DescuentosMovimientoDao();
+    private final EmpleadoDao daoEmpleado = new EmpleadoDao();
  
     
     private List<DescuentoDetalle> listaDescuentos;
     
+    //para cargar el comboBox se crea una lista con los detalles de los descuentos
+    private final List<Descuentos> listaConceptoDescuentos = daoDescuentos.recuperarTodo();
+    //luego se crea una ObservableList del tipo de datos que va conener y se incializa con la lista creada
+    //anterior mente
+    private final ObservableList<Descuentos> comboList = FXCollections.observableArrayList(
+            listaConceptoDescuentos
+    );
     private ObservableList<DescuentoDetalle> observableListaDescuentos;
-    
-    private final DescuentosDao daoDescuentos = new DescuentosDao();
-    private final AdelantoMovimientoDao daoDescuentoMovimiento = new AdelantoMovimientoDao();
-    private final EmpleadoDao daoEmpleado = new EmpleadoDao();
     
     /**
      * Initializes the controller class.
@@ -83,11 +94,22 @@ public class MovAdelantoController implements Initializable, ControlarVentana {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        // se carga el comboBox al inicializar la ventana
+        jcbAdelantos.setItems(comboList);
     }
     
     @FXML
-    private void btnGuardarAction(){
-        
+    void btnGuardarAction(ActionEvent event) {
+        DescuentoMovimiento mov = new DescuentoMovimiento();
+        mov.setIdEmpleado(Integer.parseInt(tfCodigo.getText()));
+        mov.setFecha(dpFechaAdelanto.getValue());
+        mov.setIdAdelanto(jcbAdelantos.getSelectionModel().getSelectedIndex()+1);
+        mov.setMonto(Double.parseDouble(tfMonto.getText()));
+        mov.setEstado("PENDIENTE");
+        daoDescuentoMovimiento.guardar(mov);
+        limpiar();
+        buscarPorFuncionario();
     }
     
     @FXML
@@ -117,5 +139,14 @@ public class MovAdelantoController implements Initializable, ControlarVentana {
         Empleado emp = daoEmpleado.recuperarPorCodigo(Integer.parseInt(tfCodigo.getText()));
         tfNombre.setText(emp.getNombre());
         tfApellido.setText(emp.getApellido());
+    }
+    
+    public void cargarComboBox(){
+    }
+
+    private void limpiar() {
+        tfMonto.setText("");
+        dpFechaAdelanto.setValue(LocalDate.now());
+        jcbAdelantos.setValue(null);
     }
 }

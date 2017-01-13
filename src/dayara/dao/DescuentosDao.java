@@ -77,7 +77,7 @@ public class DescuentosDao {
 
     public List<Descuentos> recuperarTodo() {
 
-        String sql = "SELECT * FROM public.descuentos ORDER BY concepto;";
+        String sql = "SELECT * FROM public.descuentos ORDER BY id;";
         
         List<Descuentos> lista = new ArrayList<>();
         
@@ -97,7 +97,7 @@ public class DescuentosDao {
             while (rs.next()) {
                 empl = new Descuentos();
                 
-                empl.setId(rs.getInt("id"));
+//                empl.setId(rs.getInt("id"));
                 empl.setConcepto(rs.getString("concepto"));
 
                 lista.add(empl);
