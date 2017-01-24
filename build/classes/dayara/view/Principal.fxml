@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayara.Controller.PrincipalController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayara.Controller.PrincipalController">
    <children>
       <MenuBar>
          <menus>
@@ -43,11 +44,45 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <JFXButton fx:id="btnSalir" layoutX="669.0" layoutY="514.0" onAction="#btnSalirAction" prefHeight="29.0" prefWidth="82.0" style="-fx-background-color: red;" text="Salir" textFill="WHITE">
+            <JFXButton fx:id="btnSalir" layoutX="1172.0" layoutY="522.0" onAction="#btnSalirAction" prefHeight="29.0" prefWidth="82.0" style="-fx-background-color: red;" text="Salir" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </JFXButton>
+            <Button fx:id="btnTest" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="132.0" layoutY="101.0" mnemonicParsing="false" onMouseEntered="#btnChange" onMouseExited="#btnChangeOriginal" prefHeight="256.0" prefWidth="256.0" style="-fx-background-image: url(/dayara/images/ FuncionarioRed.png); -fx-background-size: 230, 230; -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-radius: 5px; -fx-background-color: #FFF;">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnMovimientos" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="473.0" layoutY="101.0" mnemonicParsing="false" onMouseEntered="#btnChangeMovimiento" onMouseExited="#btnChangeOriginalMovimiento" prefHeight="256.0" prefWidth="256.0" style="-fx-background-image: url(/dayara/images/ movimientoRed.png); -fx-background-size: 230, 230; -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-radius: 5px; -fx-background-color: #FFF;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnUser" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="794.0" layoutY="100.0" mnemonicParsing="false" onMouseEntered="#btnChangeUser" onMouseExited="#btnChangeOriginalUser" prefHeight="256.0" prefWidth="256.0" style="-fx-background-image: url(/dayara/images/ userRed.png); -fx-background-size: 230, 230; -fx-background-repeat: no-repeat; -fx-background-position: center; -fx-border-radius: 5px; -fx-background-color: #FFF;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="204.0" layoutY="375.0" text="Funcionario">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="559.0" layoutY="372.0" text="Movimiento">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="881.0" layoutY="372.0" text="Usuario">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAviso" alignment="CENTER" layoutX="291.0" layoutY="453.0" prefHeight="59.0" prefWidth="621.0" text="Bienvenidos al Sistema">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
    </children>
 </VBox>

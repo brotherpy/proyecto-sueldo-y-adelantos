@@ -22,6 +22,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -57,12 +59,29 @@ public class LoginController implements Initializable, ControlarVentana {
         LoginDao dao = new LoginDao();
         
         if(dao.validarIngreso(tfUser.getText(), tfPass.getText()) == 1){
-//            
-//           
+         
             myController.setScreen(Login.screen2ID);
             
         }else{
             txtMensaje.setText("Usuario o Password erroneos");
+        }
+    }
+    
+    
+    //metodo que se encarga de hacer el login con enter
+    @FXML
+    private void btnKeyPressed(KeyEvent event){
+        if (event.getCode() == KeyCode.ENTER) {
+             LoginDao dao = new LoginDao();
+        
+            if(dao.validarIngreso(tfUser.getText(), tfPass.getText()) == 1){
+            
+                myController.setScreen(Login.screen2ID);
+
+            }else{
+                txtMensaje.setText("Usuario o Password erroneos");
+            }
+            
         }
     }
     /**

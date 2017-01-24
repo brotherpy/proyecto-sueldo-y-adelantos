@@ -21,11 +21,11 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="tfBusqueda" layoutX="10.0" layoutY="74.0" maxWidth="197.0" minWidth="197.0" prefHeight="31.0" prefWidth="197.0" promptText="Ingrese el nombre del usuario" />
-                  <JFXTextField fx:id="tfCodigo" layoutX="34.0" layoutY="149.0" promptText="Codigo" />
-                  <JFXTextField fx:id="tfUsuario" layoutX="34.0" layoutY="180.0" promptText="Usuario" />
-                  <JFXTextField fx:id="tfPassword" layoutX="34.0" layoutY="211.0" promptText="Password" />
-                  <JFXTextField fx:id="tfConfirmPass" layoutX="34.0" layoutY="242.0" promptText="Confirmar Password" />
+                  <JFXTextField fx:id="tfBusqueda" labelFloat="true"  layoutX="10.0" layoutY="74.0" maxWidth="197.0" minWidth="197.0" prefHeight="31.0" prefWidth="197.0" promptText="Ingrese el nombre del usuario" />
+                  <JFXTextField fx:id="tfCodigo" labelFloat="true" layoutX="34.0" layoutY="149.0" promptText="Codigo" />
+                  <JFXTextField fx:id="tfUsuario" labelFloat="true" layoutX="34.0" layoutY="180.0" promptText="Usuario" />
+                  <JFXTextField fx:id="tfPassword" labelFloat="true" layoutX="34.0" layoutY="211.0" promptText="Password" />
+                  <JFXTextField fx:id="tfConfirmPass" labelFloat="true" layoutX="34.0" layoutY="242.0" promptText="Confirmar Password" />
                   <JFXButton fx:id="btnBuscar" layoutX="223.0" layoutY="73.0" onAction="#btnBuscarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #3133bf;" text="Buscar" textFill="WHITE" />
                   <JFXButton fx:id="btnNuevo" layoutX="21.0" layoutY="504.0" onAction="#btnNuevoAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #ffb200;" text="Nuevo" textFill="WHITE" />
                   <JFXButton fx:id="btnGuardar" buttonType="RAISED" layoutX="119.0" layoutY="504.0" onAction="#btnGuardarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #3D5C05;" text="Guardar" textFill="#e4d9d9" />

@@ -15,7 +15,13 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -40,6 +46,26 @@ public class PrincipalController implements Initializable, ControlarVentana {
     private JFXButton btnRegistrarFuncionario;
     @FXML
     private JFXButton btnSalir;
+    
+    @FXML
+    private ImageView btnEmpleado;
+    
+    
+    
+    //parte nueva interfaz
+    @FXML
+    private Button btnTest;
+    @FXML
+    private Button btnMovimientos;
+    @FXML
+    private Button btnUser;
+    
+    @FXML
+    private Label lblAviso;
+
+    
+    
+    
     @FXML
     private void btnActionRegistrarFuncionario() throws IOException{
         //generarVentana();
@@ -95,4 +121,69 @@ public class PrincipalController implements Initializable, ControlarVentana {
     public void setVentana(ScreensController screenPage) {
         mycontroller = screenPage;
     }
+    // mouse over comportamiento cuando el mouse esta encima
+    @FXML
+    void btnChange(MouseEvent event) {
+       
+        btnTest.setStyle("-fx-background-image: url(/dayara/images/ funcionarioGreen.png); "
+                + "-fx-background-size: 250, 250; -fx-background-repeat: no-repeat; "
+                + "-fx-background-position: center; -fx-border-radius: 5px; -fx-background-color: #FFF;");
+        
+        lblAviso.setText("Realiza las operaciones concernientes a Funcionario");
+        
+      
+    }
+    //vuelta a lo normal cuando el mouse sale
+    @FXML
+    void btnChangeOriginal(MouseEvent event) {
+        btnTest.setStyle("-fx-background-image: url(/dayara/images/ FuncionarioRed.png); "
+                + "-fx-background-size: 230, 230; -fx-background-repeat: no-repeat; "
+                + "-fx-background-position: center; -fx-border-radius: 5px; -fx-background-color: #FFF;");
+        lblAviso.setText("");
+        
+    }
+   
+    @FXML
+    void btnChangeMovimiento(MouseEvent event) {
+        btnMovimientos.setStyle("-fx-background-image: url(/dayara/images/ movimientoGreen.png); "
+                + "-fx-background-size: 250, 250; -fx-background-repeat: no-repeat; "
+                + "-fx-background-position: center; -fx-border-radius: 5px; -fx-background-color: #FFF;");
+        lblAviso.setText("Otorga adelanto, liquidacion, revisa informes de pago.");
+
+    }
+
+
+
+    @FXML
+    void btnChangeOriginalMovimiento(MouseEvent event) {
+         btnMovimientos.setStyle("-fx-background-image: url(/dayara/images/ movimientoRed.png); "
+                + "-fx-background-size: 230, 230; -fx-background-repeat: no-repeat; "
+                + "-fx-background-position: center; -fx-border-radius: 5px; -fx-background-color: #FFF;");
+         lblAviso.setText("");
+
+    }
+     
+    
+    @FXML
+    void btnChangeUser(MouseEvent event) {
+         btnUser.setStyle("-fx-background-image: url(/dayara/images/ userGreen.png); "
+                + "-fx-background-size: 250, 250; -fx-background-repeat: no-repeat; "
+                + "-fx-background-position: center; -fx-border-radius: 5px; -fx-background-color: #FFF;");
+         lblAviso.setText("Agrega y edita Usuarios del Sistema");
+
+    }
+
+    
+    @FXML
+    void btnChangeOriginalUser(MouseEvent event) {
+        btnUser.setStyle("-fx-background-image: url(/dayara/images/ userRed.png); "
+                + "-fx-background-size: 230, 230; -fx-background-repeat: no-repeat; "
+                + "-fx-background-position: center; -fx-border-radius: 5px; -fx-background-color: #FFF;");
+        lblAviso.setText("");
+
+    }
+
+  
+     
+    
 }

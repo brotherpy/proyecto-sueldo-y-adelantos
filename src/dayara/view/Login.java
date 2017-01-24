@@ -28,15 +28,7 @@ public class Login extends Application{
     public static String screen4ID= "Adelanto";
     public static String screen4File = "/dayara/view/MovAdelanto.fxml";
 
-//    @Override
-//    public void start(Stage stage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("/dayara/view/Login.fxml"));
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.setTitle("Acceso al sistema");
-//        stage.show();
-//    }
-//    
+  
       @Override
     public void start(Stage primaryStage) {
         ScreensController mainContainer = new ScreensController();
@@ -51,11 +43,9 @@ public class Login extends Application{
         root.getChildren().addAll(mainContainer);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
+       
         primaryStage.show();
         
     }
-//     public static void main(String[] args) {
-//        launch(args);
-//    }
-//    
+  
 }
