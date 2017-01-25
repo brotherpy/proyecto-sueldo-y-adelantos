@@ -45,6 +45,7 @@ public class Login extends Application{
         mainContainer.loadScreen(Login.screen2ID, Login.screen2File);
         mainContainer.loadScreen(Login.screen3ID, Login.screen3File);
         mainContainer.loadScreen(Login.screen4ID, Login.screen4File);
+        mainContainer.loadScreen(Login.screen5ID, Login.screen5File);
 //        
         mainContainer.setScreen(Login.screen1ID);
         
