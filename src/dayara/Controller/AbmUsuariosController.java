@@ -9,17 +9,24 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import dayara.dao.UsuariosDao;
 import dayara.model.Usuarios;
+import dayara.view.ControlarVentana;
+import dayara.view.Login;
+import dayara.view.ScreensController;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
@@ -28,7 +35,10 @@ import javafx.scene.text.Text;
  *
  * @author jorge
  */
-public class AbmUsuariosController implements Initializable {
+public class AbmUsuariosController implements Initializable, ControlarVentana {
+      ScreensController myController;
+    
+    
 
     @FXML
     private AnchorPane achorPaneUsuarios;
@@ -59,6 +69,13 @@ public class AbmUsuariosController implements Initializable {
     @FXML
     private Text txtMensaje;
     
+    
+      //parte de la nueva interfaz
+    @FXML
+    private Button btnAtras;
+    
+    @FXML
+    private Label lblAtras;
  
     
     private List<Usuarios> listaUsuarios;
@@ -195,5 +212,28 @@ public class AbmUsuariosController implements Initializable {
             validar = true;
         }
         return validar;
+    }
+    
+    //relativo al boton atras
+       @FXML
+    void btnAtrasEntered(MouseEvent event) {
+        lblAtras.setText("Atrás");
+
+    }
+
+    @FXML
+    void btnAtrasExited(MouseEvent event) {
+        lblAtras.setText("");
+
+    }
+    
+       @FXML
+    void btnAtrasAccion(ActionEvent event) {
+        myController.setScreen(Login.screen2ID);
+    }
+
+    @Override
+    public void setVentana(ScreensController screenPage) {
+        myController = screenPage;
     }
 }

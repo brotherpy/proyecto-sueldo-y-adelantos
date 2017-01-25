@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -18,30 +19,36 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="577.0" prefWidth="385.0">
                <children>
-                  <Label layoutX="48.0" layoutY="14.0" text="Datos del Empleado">
+                  <Label layoutX="48.0" layoutY="77.0" text="Datos del Empleado">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="tfBusqueda" labelFloat="true" layoutX="10.0" layoutY="74.0" maxWidth="256.0" minWidth="197.0" prefHeight="31.0" prefWidth="256.0" promptText="Ingrese el nombre del funcionario" />
-                  <JFXTextField fx:id="tfCodigo" labelFloat="true" layoutX="34.0" layoutY="131.0" promptText="Codigo" />
-                  <JFXTextField fx:id="tfNombre" labelFloat="true" layoutX="34.0" layoutY="172.0" promptText="Nombres" />
-                  <JFXTextField fx:id="tfApellido" labelFloat="true" layoutX="34.0" layoutY="211.0" promptText="Apellidos" />
-                  <JFXTextField fx:id="tfCedula" labelFloat="true" layoutX="37.0" layoutY="251.0" promptText="Nro de Cedula" />
-                  <JFXTextField fx:id="tfTelefono" labelFloat="true" layoutX="36.0" layoutY="293.0" promptText="Telefono" />
-                  <JFXDatePicker fx:id="dpFechaAlta" layoutX="37.0" layoutY="336.0" promptText="Fecha de Alta" />
-                  <JFXTextField fx:id="tfSalario" labelFloat="true" layoutX="37.0" layoutY="377.0" promptText="Salario" />
-                  <JFXButton fx:id="btnBuscar" layoutX="326.0" layoutY="73.0" onAction="#btnBuscarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #3133bf;" text="Buscar" textFill="WHITE" />
-                  <JFXButton fx:id="btnNuevo" layoutX="18.0" layoutY="454.0" onAction="#btnNuevoAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #ffb200;" text="Nuevo" textFill="WHITE" />
-                  <JFXButton fx:id="btnGuardar" buttonType="RAISED" layoutX="119.0" layoutY="454.0" onAction="#btnGuardarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #3D5C05;" text="Guardar" textFill="#e4d9d9" />
-                  <JFXButton fx:id="btnCancelar" buttonType="RAISED" layoutX="220.0" layoutY="454.0" onAction="#btnCancelarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #333A27;" text="Cancelar" textFill="#fcfafa" />
-                  <JFXButton fx:id="btnAdelantos" layoutX="330.0" layoutY="454.0" onAction="#btnAdelantosAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: red;" text="Adelantos" textFill="WHITE" />
+                  <JFXTextField fx:id="tfBusqueda" labelFloat="true" layoutX="10.0" layoutY="137.0" maxWidth="256.0" minWidth="197.0" prefHeight="31.0" prefWidth="256.0" promptText="Ingrese el nombre del funcionario" />
+                  <JFXTextField fx:id="tfCodigo" labelFloat="true" layoutX="34.0" layoutY="194.0" promptText="Codigo" />
+                  <JFXTextField fx:id="tfNombre" labelFloat="true" layoutX="34.0" layoutY="235.0" promptText="Nombres" />
+                  <JFXTextField fx:id="tfApellido" labelFloat="true" layoutX="34.0" layoutY="274.0" promptText="Apellidos" />
+                  <JFXTextField fx:id="tfCedula" labelFloat="true" layoutX="37.0" layoutY="314.0" promptText="Nro de Cedula" />
+                  <JFXTextField fx:id="tfTelefono" labelFloat="true" layoutX="36.0" layoutY="356.0" promptText="Telefono" />
+                  <JFXDatePicker fx:id="dpFechaAlta" layoutX="37.0" layoutY="399.0" promptText="Fecha de Alta" />
+                  <JFXTextField fx:id="tfSalario" labelFloat="true" layoutX="37.0" layoutY="440.0" promptText="Salario" />
+                  <JFXButton fx:id="btnBuscar" layoutX="326.0" layoutY="136.0" onAction="#btnBuscarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #3133bf;" text="Buscar" textFill="WHITE" />
+                  <JFXButton fx:id="btnNuevo" layoutX="18.0" layoutY="517.0" onAction="#btnNuevoAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #ffb200;" text="Nuevo" textFill="WHITE" />
+                  <JFXButton fx:id="btnGuardar" buttonType="RAISED" layoutX="119.0" layoutY="517.0" onAction="#btnGuardarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #3D5C05;" text="Guardar" textFill="#e4d9d9" />
+                  <JFXButton fx:id="btnCancelar" buttonType="RAISED" layoutX="220.0" layoutY="517.0" onAction="#btnCancelarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #333A27;" text="Cancelar" textFill="#fcfafa" />
+                  <JFXButton fx:id="btnAdelantos" layoutX="330.0" layoutY="517.0" onAction="#btnAdelantosAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: red;" text="Adelantos" textFill="WHITE" />
                   <Text fx:id="txtMensaje" fill="RED" layoutX="21.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="273.7294921875">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Text>
-                  <ImageView fx:id="ciImagen" fitHeight="140.0" fitWidth="140.0" layoutX="287.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ciImagen" fitHeight="140.0" fitWidth="140.0" layoutX="287.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="btnAtras" layoutX="21.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnAtrasAction" onMouseEntered="#btnAtrasEntered" onMouseExited="#btnAtrasExited" prefHeight="32.0" prefWidth="42.0" style="-fx-background-image: url(/dayara/images/ back1.png); -fx-background-size: 32, 32; -fx-background-repeat: no-repeat;" />
+                  <Label fx:id="lblAtras" layoutX="71.0" layoutY="29.0" prefHeight="17.0" prefWidth="56.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

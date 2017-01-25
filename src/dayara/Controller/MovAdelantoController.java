@@ -16,6 +16,7 @@ import dayara.model.DescuentoMovimiento;
 import dayara.model.Descuentos;
 import dayara.model.Empleado;
 import dayara.view.ControlarVentana;
+import dayara.view.Login;
 import dayara.view.ScreensController;
 import java.net.URL;
 import java.time.LocalDate;
@@ -27,10 +28,12 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
@@ -69,6 +72,14 @@ public class MovAdelantoController implements Initializable, ControlarVentana {
     private JFXButton btnCancelar;
     @FXML
     private Text txtMensaje;
+    
+    //nueva interfaz
+    @FXML
+    private Button btnAtras;
+    
+    
+    
+    
     
     
     private final DescuentosDao daoDescuentos = new DescuentosDao();
@@ -149,4 +160,20 @@ public class MovAdelantoController implements Initializable, ControlarVentana {
         dpFechaAdelanto.setValue(LocalDate.now());
         jcbAdelantos.setValue(null);
     }
+    
+      @FXML
+    void btnAtrasAction(ActionEvent event) {
+         myController.setScreen(Login.screen2ID);
+    }
+
+    @FXML
+    void btnAtrasEntered(MouseEvent event) {
+
+    }
+
+    @FXML
+    void btnAtrasExited(MouseEvent event) {
+
+    }
+
 }

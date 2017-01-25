@@ -5,12 +5,19 @@
  */
 package dayara.view;
 
+import java.util.Optional;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -27,6 +34,8 @@ public class Login extends Application{
     public static String screen3File = "/dayara/view/AbmEmpleados.fxml";
     public static String screen4ID= "Adelanto";
     public static String screen4File = "/dayara/view/MovAdelanto.fxml";
+    public static String screen5ID = "abmUsuario";
+    public static String screen5File = "/dayara/view/AbmUsuarios.fxml";
 
   
       @Override
@@ -45,6 +54,27 @@ public class Login extends Application{
         primaryStage.setScene(scene);
        
         primaryStage.show();
+        
+        
+        
+        //ventana de dialogo al cerrar
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                event.consume();
+                
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Cierre del Sistema");
+                alert.setHeaderText("Esta accion cierra el Sistema. Desea Salir?");
+                alert.initOwner(primaryStage);
+                
+                Optional<ButtonType> result = alert.showAndWait();
+               
+                if (result.get() == ButtonType.OK) {
+                    Platform.exit();
+                }
+            }
+        });
         
     }
   

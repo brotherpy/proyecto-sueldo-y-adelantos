@@ -12,6 +12,7 @@ import dayara.view.ScreensController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +25,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -42,8 +44,8 @@ public class PrincipalController implements Initializable, ControlarVentana {
     private MenuItem MenuITemCatastroUsuario;
     @FXML
     private MenuItem MenuITemMovimientosAdelantos;
-    @FXML
-    private JFXButton btnRegistrarFuncionario;
+//    @FXML
+//    private JFXButton btnRegistrarFuncionario;
     @FXML
     private JFXButton btnSalir;
     
@@ -54,7 +56,7 @@ public class PrincipalController implements Initializable, ControlarVentana {
     
     //parte nueva interfaz
     @FXML
-    private Button btnTest;
+    private Button btnFuncionario;
     @FXML
     private Button btnMovimientos;
     @FXML
@@ -62,15 +64,26 @@ public class PrincipalController implements Initializable, ControlarVentana {
     
     @FXML
     private Label lblAviso;
+   
 
     
     
     
     @FXML
-    private void btnActionRegistrarFuncionario() throws IOException{
+    private void btnFuncionarioAction() throws IOException{
         //generarVentana();
         mycontroller.setScreen(Login.screen3ID);
+       
     }
+     @FXML
+    void btnMovimientosAction(ActionEvent event) {
+         mycontroller.setScreen(Login.screen4ID);
+    }
+     @FXML
+    void btnUserAction(ActionEvent event) {
+         mycontroller.setScreen(Login.screen5ID);
+    }
+    
     @FXML
     private void btnSalirAction(){
         Stage stage = (Stage) btnSalir.getScene().getWindow();
@@ -125,7 +138,7 @@ public class PrincipalController implements Initializable, ControlarVentana {
     @FXML
     void btnChange(MouseEvent event) {
        
-        btnTest.setStyle("-fx-background-image: url(/dayara/images/ funcionarioGreen.png); "
+        btnFuncionario.setStyle("-fx-background-image: url(/dayara/images/ funcionarioGreen.png); "
                 + "-fx-background-size: 250, 250; -fx-background-repeat: no-repeat; "
                 + "-fx-background-position: center; -fx-border-radius: 5px; -fx-background-color: #FFF;");
         
@@ -136,7 +149,7 @@ public class PrincipalController implements Initializable, ControlarVentana {
     //vuelta a lo normal cuando el mouse sale
     @FXML
     void btnChangeOriginal(MouseEvent event) {
-        btnTest.setStyle("-fx-background-image: url(/dayara/images/ FuncionarioRed.png); "
+        btnFuncionario.setStyle("-fx-background-image: url(/dayara/images/ FuncionarioRed.png); "
                 + "-fx-background-size: 230, 230; -fx-background-repeat: no-repeat; "
                 + "-fx-background-position: center; -fx-border-radius: 5px; -fx-background-color: #FFF;");
         lblAviso.setText("");

@@ -2,39 +2,40 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="achorPaneUsuarios" prefHeight="579.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayara.Controller.AbmUsuariosController">
+<AnchorPane id="AnchorPane" fx:id="achorPaneUsuarios" prefHeight="579.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayara.Controller.AbmUsuariosController">
    <children>
       <SplitPane dividerPositions="0.40225563909774437" layoutX="83.0" layoutY="107.0" prefHeight="783.0" prefWidth="956.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Label layoutX="13.0" layoutY="14.0" text="Datos de los usuarios del sitema">
+                  <Label layoutX="13.0" layoutY="112.0" text="Datos de los usuarios del sitema">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="tfBusqueda" labelFloat="true"  layoutX="10.0" layoutY="74.0" maxWidth="197.0" minWidth="197.0" prefHeight="31.0" prefWidth="197.0" promptText="Ingrese el nombre del usuario" />
-                  <JFXTextField fx:id="tfCodigo" labelFloat="true" layoutX="34.0" layoutY="149.0" promptText="Codigo" />
-                  <JFXTextField fx:id="tfUsuario" labelFloat="true" layoutX="34.0" layoutY="180.0" promptText="Usuario" />
-                  <JFXTextField fx:id="tfPassword" labelFloat="true" layoutX="34.0" layoutY="211.0" promptText="Password" />
-                  <JFXTextField fx:id="tfConfirmPass" labelFloat="true" layoutX="34.0" layoutY="242.0" promptText="Confirmar Password" />
-                  <JFXButton fx:id="btnBuscar" layoutX="223.0" layoutY="73.0" onAction="#btnBuscarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #3133bf;" text="Buscar" textFill="WHITE" />
+                  <JFXTextField fx:id="tfBusqueda" labelFloat="true" layoutX="10.0" layoutY="172.0" maxWidth="197.0" minWidth="197.0" prefHeight="31.0" prefWidth="197.0" promptText="Ingrese el nombre del usuario" />
+                  <JFXTextField fx:id="tfCodigo" labelFloat="true" layoutX="34.0" layoutY="247.0" promptText="Codigo" />
+                  <JFXTextField fx:id="tfUsuario" labelFloat="true" layoutX="34.0" layoutY="278.0" promptText="Usuario" />
+                  <JFXTextField fx:id="tfPassword" labelFloat="true" layoutX="34.0" layoutY="309.0" promptText="Password" />
+                  <JFXTextField fx:id="tfConfirmPass" labelFloat="true" layoutX="34.0" layoutY="340.0" promptText="Confirmar Password" />
+                  <JFXButton fx:id="btnBuscar" layoutX="223.0" layoutY="171.0" onAction="#btnBuscarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #3133bf;" text="Buscar" textFill="WHITE" />
                   <JFXButton fx:id="btnNuevo" layoutX="21.0" layoutY="504.0" onAction="#btnNuevoAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #ffb200;" text="Nuevo" textFill="WHITE" />
                   <JFXButton fx:id="btnGuardar" buttonType="RAISED" layoutX="119.0" layoutY="504.0" onAction="#btnGuardarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #3D5C05;" text="Guardar" textFill="#e4d9d9" />
                   <JFXButton fx:id="btnCancelar" buttonType="RAISED" layoutX="223.0" layoutY="504.0" onAction="#btnCancelarAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #333A27;" text="Cancelar" textFill="#fcfafa" />
-                  <Text fx:id="txtMensaje" fill="RED" layoutX="9.0" layoutY="316.0" strokeType="INSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="293.99998784065247">
+                  <Button fx:id="btnAtras" layoutX="12.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnAtrasAccion" onMouseEntered="#btnAtrasEntered" onMouseExited="#btnAtrasExited" prefHeight="32.0" prefWidth="42.0" style="-fx-background-image: url(/dayara/images/ back1.png); -fx-background-size: 32, 32; -fx-background-repeat: no-repeat;" />
+                  <Label fx:id="lblAtras" layoutX="69.0" layoutY="25.0" prefHeight="17.0" prefWidth="53.0">
                      <font>
-                        <Font name="System Bold" size="23.0" />
+                        <Font size="15.0" />
                      </font>
-                  </Text>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

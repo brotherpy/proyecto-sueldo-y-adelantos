@@ -32,15 +32,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 
 /**
  * FXML Controller class
@@ -92,6 +96,18 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
     private Text txtMensaje;
     @FXML
     private ImageView ciImagen;
+    
+    
+    
+    //parte de la nueva interfaz
+    @FXML
+    private Button btnAtras;
+    
+    @FXML
+    private Label lblAtras;
+
+
+    
     //
     ///
     ///
@@ -149,6 +165,8 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
        
         tfNombre.addEventFilter(KeyEvent.KEY_TYPED, validacionLetra(20)); //solo acepta letras hasta 20 caracteres
         tfCedula.addEventFilter(KeyEvent.KEY_TYPED, validacionNumerica(7));//validacion numerica aplicada a cedula limitando los digitos a 7
+        
+        
     }    
     
     private void cargarTablaEmpleados(){
@@ -347,5 +365,27 @@ public class AbmEmpleadosController implements Initializable, ControlarVentana {
     private void cargarImagenCI(){
         Image imag = new Image(getClass().getResourceAsStream("/dayara/images/"+tfCedula.getText()+".jpg"));
         ciImagen.setImage(imag);
+    }
+    
+    
+    //parte de la nueva interfaz
+    
+    @FXML
+    void btnAtrasAction(ActionEvent event) {
+       myController.setScreen(Login.screen2ID);
+
+    }
+    
+    
+    @FXML
+    void btnAtrasEntered(MouseEvent event) {
+        lblAtras.setText("Atrás");
+
+    }
+
+    @FXML
+    void btnAtrasExited(MouseEvent event) {
+        lblAtras.setText("");
+
     }
 }
